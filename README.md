@@ -25,7 +25,7 @@ at https://www.gnu.org/software/classpath/license.html.
 
 ### 1. Configuração do Projeto
 - [X] Inicializar o projeto Clojure
-- [ ] Configurar as dependências necessárias (Leiningen ou deps.edn)
+- [X] Configurar as dependências necessárias (Leiningen ou deps.edn)
 
 ### 2. Estrutura de Dados
 - [ ] Implementar a estrutura de dados mapa (hash-map) para representar as transações
