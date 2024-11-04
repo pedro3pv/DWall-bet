@@ -1,4 +1,4 @@
-# Bollywood bet
+# Bollywood Bet
 
 A Clojure library designed to ... well, that part is up to you.
 
