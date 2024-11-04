@@ -21,8 +21,6 @@ the Free Software Foundation, either version 2 of the License, or (at your
 option) any later version, with the GNU Classpath Exception which is available
 at https://www.gnu.org/software/classpath/license.html.
 
-Peço desculpas pelo equívoco. Vou reformular a lista de tasks considerando que a linguagem é Clojure. Aqui está a versão atualizada:
-
 ## Nível Fácil
 
 ### 1. Configuração do Projeto
