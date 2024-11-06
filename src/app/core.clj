@@ -1,6 +1,14 @@
-(ns app.core)
+(ns app.core
+    (:require [io.pedestal.http :as http]
+      [io.pedestal.http.route :as route]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def routes (route/expand-routes
+              ["/" {:get (fn [req] {:status 200
+                                    :body "Hello, World!"})}]))
+
+(def http-server {
+                  ::http/routes routes
+                  ::http/port 8080
+                  ::http/type :jetty
+                  ::http/join? false
+                  })
