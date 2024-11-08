@@ -1,13 +1,20 @@
 (ns app.core
-    (:require [io.pedestal.http :as http]
-      [io.pedestal.http.route :as route]))
+  (:require [io.pedestal.http :as http]
+            [io.pedestal.http.route :as route]
+            [app.middleware :refer [json-interceptor]]))
 
 (defn funcao-hello [request]
   {:status 200
    :body "Hello World"})
 
+(defn json-handler [request]
+  (println "Dados recebidos:" (:json-body request))
+  {:status 200
+   :body {:mensagem "Dados recebidos com sucesso!"}})
+
 (def routes (route/expand-routes
-              #{["/hello" :get funcao-hello :route-name :hello-world]}))
+              #{["/hello" :get funcao-hello :route-name :hello-world]
+                ["/Json" :post [json-interceptor json-handler] :route-name :Json]}))
 
 (def http-server {
                   ::http/routes routes
@@ -15,5 +22,6 @@
                   ::http/type :jetty
                   ::http/join? false
                   })
+
 (http/start (http/create-server http-server))
 (println "Server started on port 8080")

@@ -9,5 +9,6 @@
                  [io.pedestal/pedestal.jetty "0.5.7"]
                  [org.clojure/data.json "0.2.6"]
                  [org.slf4j/slf4j-simple "1.7.28"]
-                 [com.novemberain/monger "3.5.0"]]
+                 [com.novemberain/monger "3.5.0"]
+                 [cheshire "5.13.0"]]
   :repl-options {:init-ns app.core})
