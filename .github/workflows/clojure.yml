@@ -1,0 +1,28 @@
+name: Clojure CI
+on:
+  pull_request:
+    types: [synchronize, opened, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Leiningen
+        uses: DeLaGuardo/setup-leiningen@v1
+        with:
+          lein_version: '2.9.6'
+
+      - name: Run tests
+        run: lein test
+        continue-on-error: true
+        id: test
+
+      - name: Post comment and request changes if tests fail
+        if: failure()
+        run: |
+          gh pr review ${{ github.event.pull_request.number }} --request-changes --body "Testes falharam. Por favor, faça as alterações necessárias."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
