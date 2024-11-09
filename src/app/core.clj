@@ -2,7 +2,8 @@
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
             [app.middleware :refer [json-interceptor]]
-            [app.service.rundown :refer [sport-list get-open-odds]])) ; Importando o namespace e a função
+            [app.service.rundown :refer [sport-list get-open-odds]]
+            [app.service.rundown :refer [sport-list]]))
 
 (defn funcao-hello [request]
   {:status 200
