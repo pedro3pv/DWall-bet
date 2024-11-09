@@ -1,0 +1,17 @@
+name: Issue Start Date
+on:
+  issues:
+    types: [opened]
+jobs:
+  set-start-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set start date if opened today
+        run: |
+          current_date=$(date -u +"%Y-%m-%d")
+          issue_created_date=$(date -u -d "${{ github.event.issue.created_at }}" +"%Y-%m-%d")
+          if [ "$current_date" == "$issue_created_date" ]; then
+            gh issue edit ${{ github.event.issue.number }} --add-label "start-date: $current_date"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
