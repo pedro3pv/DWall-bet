@@ -1,0 +1,17 @@
+name: Issue End Date
+on:
+  issues:
+    types: [closed]
+jobs:
+  set-end-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set end date if closed today
+        run: |
+          current_date=$(date -u +"%Y-%m-%d")
+          issue_closed_date=$(date -u -d "${{ github.event.issue.closed_at }}" +"%Y-%m-%d")
+          if [ "$current_date" == "$issue_closed_date" ]; then
+            gh issue edit ${{ github.event.issue.number }} --add-label "end-date: $current_date"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
