@@ -1,7 +1,9 @@
 (ns app.core
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [app.middleware :refer [json-interceptor]]))
+            [app.middleware :refer [json-interceptor]]
+            [app.service.rundown :refer [sport-list get-open-odds]]
+            [app.service.rundown :refer [sport-list]]))
 
 (defn funcao-hello [request]
   {:status 200
@@ -14,7 +16,9 @@
 
 (def routes (route/expand-routes
               #{["/hello" :get funcao-hello :route-name :hello-world]
-                ["/Json" :post [json-interceptor json-handler] :route-name :Json]}))
+                ["/Json" :post [json-interceptor json-handler] :route-name :Json]
+                ["/get-sport" :get [json-interceptor sport-list] :route-name :get-sport]
+                ["/events" :post [json-interceptor get-open-odds] :route-name :events]}))
 
 (def http-server {
                   ::http/routes routes
