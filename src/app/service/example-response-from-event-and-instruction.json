@@ -1,0 +1,1422 @@
+{
+  "meta": {
+    "delta_last_id": "11ef-9ee0-069f8ee2-892b-3f2e9e90d218"
+  },
+  "events": [
+    {
+      "event_id": "8b925480ec6d9b90853b496f994acc18",
+      "event_uuid": "11ef-6f09-b7c05a00-8f65-3e7f90b505b0",
+      "sport_id": 2,
+      "event_date": "2024-09-10T00:15:00Z",
+      "rotation_number_away": 481,
+      "rotation_number_home": 482,
+      "score": {
+        "event_id": "8b925480ec6d9b90853b496f994acc18",
+        "event_status": "STATUS_FINAL",
+        "winner_away": 0,
+        "winner_home": 1,
+        "score_away": 19,
+        "score_home": 32,
+        "score_away_by_period": [
+          7,
+          0,
+          6,
+          6
+        ],
+        "score_home_by_period": [
+          3,
+          13,
+          10,
+          6
+        ],
+        "venue_name": "Levi's Stadium",
+        "venue_location": "Santa Clara, CA",
+        "game_clock": 0,
+        "display_clock": "0.00",
+        "game_period": 4,
+        "broadcast": "ESPN",
+        "event_status_detail": "Final",
+        "updated_at": "2024-09-10T03:09:21Z"
+      },
+      "teams": [
+        {
+          "team_id": 18765,
+          "team_normalized_id": 64,
+          "name": "New York Jets",
+          "is_away": true,
+          "is_home": false
+        },
+        {
+          "team_id": 18793,
+          "team_normalized_id": 91,
+          "name": "San Francisco 49ers",
+          "is_away": false,
+          "is_home": true
+        }
+      ],
+      "teams_normalized": [
+        {
+          "team_id": 64,
+          "name": "New York",
+          "mascot": "Jets",
+          "abbreviation": "NYJ",
+          "conference_id": 33,
+          "division_id": 7,
+          "ranking": 0,
+          "record": "3-6",
+          "is_away": true,
+          "is_home": false,
+          "conference": {
+            "conference_id": 33,
+            "sport_id": 2,
+            "name": "American Football Conference"
+          },
+          "division": {
+            "division_id": 7,
+            "conference_id": 33,
+            "sport_id": 2,
+            "name": "AFC East"
+          }
+        },
+        {
+          "team_id": 91,
+          "name": "San Francisco",
+          "mascot": "49ers",
+          "abbreviation": "SF",
+          "conference_id": 34,
+          "division_id": 14,
+          "ranking": 0,
+          "record": "4-4",
+          "is_away": false,
+          "is_home": true,
+          "conference": {
+            "conference_id": 34,
+            "sport_id": 2,
+            "name": "National Football Conference"
+          },
+          "division": {
+            "division_id": 14,
+            "conference_id": 34,
+            "sport_id": 2,
+            "name": "NFC West"
+          }
+        }
+      ],
+      "schedule": {
+        "league_name": "National Football League",
+        "conference_competition": false,
+        "season_type": "Regular Season",
+        "season_year": 2024,
+        "event_name": "New York at San Francisco - 2024-09-10T00:15:00Z",
+        "attendance": "0"
+      },
+      "lines": {
+        "4": {
+          "line_id": 17594021,
+          "moneyline": {
+            "moneyline_away": 190,
+            "moneyline_away_delta": 190,
+            "moneyline_home": -220,
+            "moneyline_home_delta": -220,
+            "moneyline_draw": -220,
+            "moneyline_draw_delta": -220.0001,
+            "line_id": 17594021,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 4,
+            "date_updated": "2024-08-01T13:44:48.485823Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 4.5,
+            "point_spread_home": -4.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17594021,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 4,
+            "date_updated": "2024-08-01T13:44:48.715512Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 45,
+            "total_over_delta": 0,
+            "total_under": 45,
+            "total_under_delta": 0,
+            "total_over_money": -110,
+            "total_over_money_delta": 0,
+            "total_under_money": -110,
+            "total_under_money_delta": 0,
+            "line_id": 17594021,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 4,
+            "date_updated": "2024-08-01T13:44:48.933209Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 4,
+            "affiliate_name": "Sportsbetting",
+            "affiliate_url": "https://www.sportsbetting.ag/join?btag=8KfE-TdI6XUcWcOFhDNnKGNd7ZgqdRLk\u0026affid=102915"
+          }
+        },
+        "3": {
+          "line_id": 17595821,
+          "moneyline": {
+            "moneyline_away": 201,
+            "moneyline_away_delta": 200.9999,
+            "moneyline_home": -229,
+            "moneyline_home_delta": -229.0001,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17595821,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 3,
+            "date_updated": "2024-08-20T13:50:25.847896Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": -5,
+            "point_spread_home": -5,
+            "point_spread_away_delta": -5.0001,
+            "point_spread_home_delta": -5.0001,
+            "point_spread_away_money": -106,
+            "point_spread_away_money_delta": -106.0001,
+            "point_spread_home_money": -104,
+            "point_spread_home_money_delta": -104.0001,
+            "extended_spreads": [
+              {
+                "point_spread_away": -2.5,
+                "point_spread_home": -2.5,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": 155,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": -179,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -3,
+                "point_spread_home": -3,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": 135,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": -155,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -3.5,
+                "point_spread_home": -3.5,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": 115,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": -131,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -4.5,
+                "point_spread_home": -4.5,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": -101,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": -111,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -6,
+                "point_spread_home": -6,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": -123,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": 109,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -4,
+                "point_spread_home": -4,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": 107,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": -120,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -5.5,
+                "point_spread_home": -5.5,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": -112,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": 101,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -6.5,
+                "point_spread_home": -6.5,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": -132,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": 116,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -7,
+                "point_spread_home": -7,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": -150,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": 132,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "point_spread_away": -7.5,
+                "point_spread_home": -7.5,
+                "point_spread_away_delta": 0,
+                "point_spread_home_delta": 0,
+                "point_spread_away_money": -168,
+                "point_spread_away_money_delta": 0,
+                "point_spread_home_money": 146,
+                "point_spread_home_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              }
+            ],
+            "line_id": 17595821,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 3,
+            "date_updated": "2024-08-20T13:50:25.930592Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 44.5,
+            "total_over_delta": 44.4999,
+            "total_under": 44.5,
+            "total_under_delta": 44.4999,
+            "total_over_money": -101,
+            "total_over_money_delta": -101.0001,
+            "total_under_money": -112,
+            "total_under_money_delta": -112.0001,
+            "extended_totals": [
+              {
+                "total_over": 42,
+                "total_over_delta": 0,
+                "total_under": 42,
+                "total_under_delta": 0,
+                "total_over_money": -143,
+                "total_over_money_delta": 0,
+                "total_under_money": 124,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 44,
+                "total_over_delta": 0,
+                "total_under": 44,
+                "total_under_delta": 0,
+                "total_over_money": -109,
+                "total_over_money_delta": 0,
+                "total_under_money": -105,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 47,
+                "total_over_delta": 0,
+                "total_under": 47,
+                "total_under_delta": 0,
+                "total_over_money": 138,
+                "total_over_money_delta": 0,
+                "total_under_money": -160,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 43,
+                "total_over_delta": 0,
+                "total_under": 43,
+                "total_under_delta": 0,
+                "total_over_money": -125,
+                "total_over_money_delta": 0,
+                "total_under_money": 109,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 43.5,
+                "total_over_delta": 0,
+                "total_under": 43.5,
+                "total_under_delta": 0,
+                "total_over_money": -117,
+                "total_over_money_delta": 0,
+                "total_under_money": 102,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 45,
+                "total_over_delta": 0,
+                "total_under": 45,
+                "total_under_delta": 0,
+                "total_over_money": 105,
+                "total_over_money_delta": 0,
+                "total_under_money": -121,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 45.5,
+                "total_over_delta": 0,
+                "total_under": 45.5,
+                "total_under_delta": 0,
+                "total_over_money": 113,
+                "total_over_money_delta": 0,
+                "total_under_money": -130,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 46,
+                "total_over_delta": 0,
+                "total_under": 46,
+                "total_under_delta": 0,
+                "total_over_money": 121,
+                "total_over_money_delta": 0,
+                "total_under_money": -139,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 46.5,
+                "total_over_delta": 0,
+                "total_under": 46.5,
+                "total_under_delta": 0,
+                "total_over_money": 130,
+                "total_over_money_delta": 0,
+                "total_under_money": -150,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              },
+              {
+                "total_over": 42.5,
+                "total_over_delta": 0,
+                "total_under": 42.5,
+                "total_under_delta": 0,
+                "total_over_money": -134,
+                "total_over_money_delta": 0,
+                "total_under_money": 117,
+                "total_under_money_delta": 0,
+                "line_id": 17595821,
+                "event_id": "8b925480ec6d9b90853b496f994acc18",
+                "sport_id": 2,
+                "affiliate_id": 3,
+                "format": "American"
+              }
+            ],
+            "line_id": 17595821,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 3,
+            "date_updated": "2024-08-20T13:50:25.953899Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 3,
+            "affiliate_name": "Pinnacle",
+            "affiliate_url": "https://www.pinnacle.com/en/rtn"
+          }
+        },
+        "12": {
+          "line_id": 17585917,
+          "moneyline": {
+            "moneyline_away": 195,
+            "moneyline_away_delta": 194.9999,
+            "moneyline_home": -235,
+            "moneyline_home_delta": -235.0001,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17585917,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 12,
+            "date_updated": "2024-08-01T13:43:35.226856Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 5,
+            "point_spread_home": -5,
+            "point_spread_away_delta": 4.9999,
+            "point_spread_home_delta": -5.0001,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": -110.0001,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": -110.0001,
+            "line_id": 17585917,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 12,
+            "date_updated": "2024-08-01T13:43:35.258412Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 44.5,
+            "total_over_delta": 44.4999,
+            "total_under": 44.5,
+            "total_under_delta": 44.4999,
+            "total_over_money": -105,
+            "total_over_money_delta": -105.0001,
+            "total_under_money": -115,
+            "total_under_money_delta": -115.0001,
+            "line_id": 17585917,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 12,
+            "date_updated": "2024-08-01T13:43:35.277566Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 12,
+            "affiliate_name": "Bodog",
+            "affiliate_url": "https://bit.ly/2Z5uFkw"
+          }
+        },
+        "22": {
+          "line_id": 17586011,
+          "moneyline": {
+            "moneyline_away": 200,
+            "moneyline_away_delta": 200,
+            "moneyline_home": -250,
+            "moneyline_home_delta": -250,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17586011,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 22,
+            "date_updated": "2024-07-26T14:21:18.544208Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 5.5,
+            "point_spread_home": -5.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17586011,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 22,
+            "date_updated": "2024-07-26T14:21:18.557416Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 45,
+            "total_over_delta": 0,
+            "total_under": 45,
+            "total_under_delta": 0,
+            "total_over_money": -110,
+            "total_over_money_delta": 0,
+            "total_under_money": -110,
+            "total_under_money_delta": 0,
+            "line_id": 17586011,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 22,
+            "date_updated": "2024-07-26T14:21:18.571828Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 22,
+            "affiliate_name": "BetMGM",
+            "affiliate_url": "https://mediaserver.betmgmpartners.com/renderBanner.do?zoneId=1721362"
+          }
+        },
+        "19": {
+          "line_id": 17588244,
+          "moneyline": {
+            "moneyline_away": 205,
+            "moneyline_away_delta": 205,
+            "moneyline_home": -250,
+            "moneyline_home_delta": -250,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17588244,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 19,
+            "date_updated": "2024-07-26T14:22:02.147634Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 5.5,
+            "point_spread_home": -5.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -105,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -115,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17588244,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 19,
+            "date_updated": "2024-07-26T14:22:02.168594Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 45.5,
+            "total_over_delta": 0,
+            "total_under": 45.5,
+            "total_under_delta": 0,
+            "total_over_money": -110,
+            "total_over_money_delta": 0,
+            "total_under_money": -110,
+            "total_under_money_delta": 0,
+            "line_id": 17588244,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 19,
+            "date_updated": "2024-07-26T14:22:02.186978Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 19,
+            "affiliate_name": "Draftkings",
+            "affiliate_url": "https://sportsbook.draftkings.com/"
+          }
+        },
+        "14": {
+          "line_id": 17588301,
+          "moneyline": {
+            "moneyline_away": 180,
+            "moneyline_away_delta": 179.9999,
+            "moneyline_home": -220,
+            "moneyline_home_delta": -220.0001,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17588301,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 14,
+            "date_updated": "2024-08-19T20:23:12.047535Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 5,
+            "point_spread_home": -5,
+            "point_spread_away_delta": 4.9999,
+            "point_spread_home_delta": -5.0001,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": -110.0001,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": -110.0001,
+            "line_id": 17588301,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 14,
+            "date_updated": "2024-08-19T14:24:50.419018Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 44.5,
+            "total_over_delta": 44.4999,
+            "total_under": 44.5,
+            "total_under_delta": 44.4999,
+            "total_over_money": -110,
+            "total_over_money_delta": -110.0001,
+            "total_under_money": -110,
+            "total_under_money_delta": -110.0001,
+            "line_id": 17588301,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 14,
+            "date_updated": "2024-08-19T20:23:18.16437Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 14,
+            "affiliate_name": "Intertops",
+            "affiliate_url": "http://bit.ly/2XkXdpa"
+          }
+        },
+        "6": {
+          "line_id": 17593866,
+          "moneyline": {
+            "moneyline_away": 190,
+            "moneyline_away_delta": 190,
+            "moneyline_home": -220,
+            "moneyline_home_delta": -220,
+            "moneyline_draw": -220,
+            "moneyline_draw_delta": -220.0001,
+            "line_id": 17593866,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 6,
+            "date_updated": "2024-08-01T13:44:20.392652Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 4.5,
+            "point_spread_home": -4.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17593866,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 6,
+            "date_updated": "2024-08-01T13:44:20.85604Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 45,
+            "total_over_delta": 0,
+            "total_under": 45,
+            "total_under_delta": 0,
+            "total_over_money": -110,
+            "total_over_money_delta": 0,
+            "total_under_money": -110,
+            "total_under_money_delta": 0,
+            "line_id": 17593866,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 6,
+            "date_updated": "2024-08-01T13:44:21.040591Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 6,
+            "affiliate_name": "BetOnline",
+            "affiliate_url": "https://record.betonlineaffiliates.ag/_4w2QQYoxTW4TMKfio_tvj2Nd7ZgqdRLk/1/"
+          }
+        },
+        "11": {
+          "line_id": 17593982,
+          "moneyline": {
+            "moneyline_away": 190,
+            "moneyline_away_delta": 190,
+            "moneyline_home": -220,
+            "moneyline_home_delta": -220,
+            "moneyline_draw": -220,
+            "moneyline_draw_delta": -220.0001,
+            "line_id": 17593982,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 11,
+            "date_updated": "2024-08-01T13:44:34.184276Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 4.5,
+            "point_spread_home": -4.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -105,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -105,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17593982,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 11,
+            "date_updated": "2024-08-01T13:44:34.340656Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 45,
+            "total_over_delta": 0,
+            "total_under": 45,
+            "total_under_delta": 0,
+            "total_over_money": -107,
+            "total_over_money_delta": 0,
+            "total_under_money": -107,
+            "total_under_money_delta": 0,
+            "line_id": 17593982,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 11,
+            "date_updated": "2024-08-01T13:44:34.943435Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 11,
+            "affiliate_name": "Lowvig",
+            "affiliate_url": "https://sportsbook.lowvig.ag/"
+          }
+        },
+        "16": {
+          "line_id": 17611951,
+          "moneyline": {
+            "moneyline_away": 168,
+            "moneyline_away_delta": 168,
+            "moneyline_home": -204.08,
+            "moneyline_home_delta": -204.08,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17611951,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 16,
+            "date_updated": "2024-08-28T17:35:27.217339Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 0.0001,
+            "point_spread_home": 0.0001,
+            "point_spread_away_delta": 0.0001,
+            "point_spread_home_delta": 0.0001,
+            "point_spread_away_money": 0.0001,
+            "point_spread_away_money_delta": 0.0001,
+            "point_spread_home_money": 0.0001,
+            "point_spread_home_money_delta": 0.0001,
+            "line_id": 17611951,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 16,
+            "date_updated": "2024-11-09T21:17:29Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 0.0001,
+            "total_over_delta": 0.0001,
+            "total_under": 0.0001,
+            "total_under_delta": 0.0001,
+            "total_over_money": 0.0001,
+            "total_over_money_delta": 0.0001,
+            "total_under_money": 0.0001,
+            "total_under_money_delta": 0.0001,
+            "line_id": 17611951,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 16,
+            "date_updated": "2024-11-09T21:17:29Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 16,
+            "affiliate_name": "Matchbook",
+            "affiliate_url": "https://www.matchbook.com/"
+          }
+        },
+        "23": {
+          "line_id": 17615630,
+          "moneyline": {
+            "moneyline_away": 180,
+            "moneyline_away_delta": 179.9999,
+            "moneyline_home": -215,
+            "moneyline_home_delta": -215.0001,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17615630,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 23,
+            "date_updated": "2024-09-07T02:11:21.969425Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 4.5,
+            "point_spread_home": -4.5,
+            "point_spread_away_delta": 4.4999,
+            "point_spread_home_delta": -4.5001,
+            "point_spread_away_money": -115,
+            "point_spread_away_money_delta": -115.0001,
+            "point_spread_home_money": -105,
+            "point_spread_home_money_delta": -105.0001,
+            "line_id": 17615630,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 23,
+            "date_updated": "2024-09-07T02:11:22.364449Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 43.5,
+            "total_over_delta": 43.4999,
+            "total_under": 43.5,
+            "total_under_delta": 43.4999,
+            "total_over_money": -115,
+            "total_over_money_delta": -115.0001,
+            "total_under_money": -105,
+            "total_under_money_delta": -105.0001,
+            "line_id": 17615630,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 23,
+            "date_updated": "2024-09-07T02:11:22.822111Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 23,
+            "affiliate_name": "Fanduel",
+            "affiliate_url": "https://sportsbook.fanduel.com/"
+          }
+        },
+        "2": {
+          "line_id": 17586183,
+          "moneyline": {
+            "moneyline_away": 205,
+            "moneyline_away_delta": 205,
+            "moneyline_home": -245,
+            "moneyline_home_delta": -245,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17586183,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 2,
+            "date_updated": "2024-07-26T14:21:25.397722Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 5.5,
+            "point_spread_home": -5.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17586183,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 2,
+            "date_updated": "2024-07-26T14:21:25.412009Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 44.5,
+            "total_over_delta": 0,
+            "total_under": 44.5,
+            "total_under_delta": 0,
+            "total_over_money": -105,
+            "total_over_money_delta": 0,
+            "total_under_money": -115,
+            "total_under_money_delta": 0,
+            "line_id": 17586183,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 2,
+            "date_updated": "2024-07-26T14:21:25.424165Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 2,
+            "affiliate_name": "Bovada",
+            "affiliate_url": "https://www.bovada.lv/"
+          }
+        },
+        "18": {
+          "line_id": 17588647,
+          "moneyline": {
+            "moneyline_away": 190,
+            "moneyline_away_delta": 190,
+            "moneyline_home": -220,
+            "moneyline_home_delta": -220,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17588647,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 18,
+            "date_updated": "2024-07-26T14:22:48.293587Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 4.5,
+            "point_spread_home": -4.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -110,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -110,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17588647,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 18,
+            "date_updated": "2024-07-26T14:22:48.322773Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 44.5,
+            "total_over_delta": 0,
+            "total_under": 44.5,
+            "total_under_delta": 0,
+            "total_over_money": -110,
+            "total_over_money_delta": 0,
+            "total_under_money": -110,
+            "total_under_money_delta": 0,
+            "line_id": 17588647,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 18,
+            "date_updated": "2024-07-26T14:22:48.34647Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 18,
+            "affiliate_name": "YouWager",
+            "affiliate_url": "http://bit.ly/2Z1s37j"
+          }
+        },
+        "21": {
+          "line_id": 17588774,
+          "moneyline": {
+            "moneyline_away": 195,
+            "moneyline_away_delta": 195,
+            "moneyline_home": -240,
+            "moneyline_home_delta": -240,
+            "moneyline_draw": 0.0001,
+            "moneyline_draw_delta": 0,
+            "line_id": 17588774,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 21,
+            "date_updated": "2024-07-26T14:23:01.23197Z",
+            "format": "American"
+          },
+          "spread": {
+            "point_spread_away": 5.5,
+            "point_spread_home": -5.5,
+            "point_spread_away_delta": 0,
+            "point_spread_home_delta": 0,
+            "point_spread_away_money": -112,
+            "point_spread_away_money_delta": 0,
+            "point_spread_home_money": -109,
+            "point_spread_home_money_delta": 0,
+            "line_id": 17588774,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 21,
+            "date_updated": "2024-07-26T14:23:01.296216Z",
+            "format": "American"
+          },
+          "total": {
+            "total_over": 45,
+            "total_over_delta": 0,
+            "total_under": 45,
+            "total_under_delta": 0,
+            "total_over_money": -110,
+            "total_over_money_delta": 0,
+            "total_under_money": -110,
+            "total_under_money_delta": 0,
+            "line_id": 17588774,
+            "event_id": "8b925480ec6d9b90853b496f994acc18",
+            "sport_id": 2,
+            "affiliate_id": 21,
+            "date_updated": "2024-07-26T14:23:01.378551Z",
+            "format": "American"
+          },
+          "affiliate": {
+            "affiliate_id": 21,
+            "affiliate_name": "Unibet",
+            "affiliate_url": "https://www.unibet.com/"
+          }
+        }
+      }
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pedro3pv: quais os campos que eu vou usar para interface de um usuario e como posso usar eles ?
+
+Workspace: Para a interface de usuário, você pode usar os seguintes campos do arquivo 
+
+test.json
+
+:
+
+1. **Meta**:
+   - `delta_last_id`: Pode ser usado para identificar a última atualização dos dados.
+
+2. **Eventos**:
+   - `event_id`: Identificador único do evento.
+   - `event_date`: Data e hora do evento.
+   - `venue_name`: Nome do local do evento.
+   - `venue_location`: Localização do evento.
+   - `broadcast`: Canal de transmissão do evento.
+   - `event_status_detail`: Status detalhado do evento (ex: "Final").
+
+3. **Pontuação**:
+   - `score_away`: Pontuação do time visitante.
+   - `score_home`: Pontuação do time da casa.
+   - `score_away_by_period`: Pontuação do time visitante por período.
+   - `score_home_by_period`: Pontuação do time da casa por período.
+
+4. **Times**:
+   - `name`: Nome do time.
+   - `is_away`: Indica se o time é visitante.
+   - `is_home`: Indica se o time é da casa.
+
+5. **Linhas de Apostas**:
+   - `moneyline_away`: Linha de dinheiro para o time visitante.
+   - `moneyline_home`: Linha de dinheiro para o time da casa.
+   - `point_spread_away`: Spread de pontos para o time visitante.
+   - `point_spread_home`: Spread de pontos para o time da casa.
+   - `total_over`: Total de pontos para apostas acima.
+   - `total_under`: Total de pontos para apostas abaixo.
+
+### Exemplo de Uso na Interface de Usuário
+
+#### Exibição de Detalhes do Evento
+```html
+<div>
+  <h2>Evento: New York Jets vs San Francisco 49ers</h2>
+  <p>Data: 2024-09-10T00:15:00Z</p>
+  <p>Local: Levi's Stadium, Santa Clara, CA</p>
+  <p>Transmissão: ESPN</p>
+  <p>Status: Final</p>
+</div>
+```
+
+#### Exibição de Pontuação
+```html
+<div>
+  <h3>Pontuação</h3>
+  <p>New York Jets: 19</p>
+  <p>San Francisco 49ers: 32</p>
+  <h4>Pontuação por Período</h4>
+  <p>New York Jets: 7, 0, 6, 6</p>
+  <p>San Francisco 49ers: 3, 13, 10, 6</p>
+</div>
+```
+
+#### Exibição de Linhas de Apostas
+```html
+<div>
+  <h3>Linhas de Apostas</h3>
+  <p>Moneyline - Visitante: 190</p>
+  <p>Moneyline - Casa: -220</p>
+  <p>Spread de Pontos - Visitante: 4.5</p>
+  <p>Spread de Pontos - Casa: -4.5</p>
+  <p>Total de Pontos - Acima: 45</p>
+  <p>Total de Pontos - Abaixo: 45</p>
+</div>
+```
+
+Esses exemplos mostram como você pode usar os campos do JSON para criar uma interface de usuário que exibe informações detalhadas sobre eventos esportivos e linhas de apostas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+pedro3pv: quais os campos que eu vou usar para interface de um usuario e como posso usar eles ?
+
+Workspace: Para a interface de usuário, você pode usar os seguintes campos do arquivo 
+
+test.json
+
+:
+
+1. **Meta**:
+   - `delta_last_id`: Pode ser usado para identificar a última atualização dos dados.
+
+2. **Eventos**:
+   - `event_id`: Identificador único do evento.
+   - `event_date`: Data e hora do evento.
+   - `venue_name`: Nome do local do evento.
+   - `venue_location`: Localização do evento.
+   - `broadcast`: Canal de transmissão do evento.
+   - `event_status_detail`: Status detalhado do evento (ex: "Final").
+
+3. **Pontuação**:
+   - `score_away`: Pontuação do time visitante.
+   - `score_home`: Pontuação do time da casa.
+   - `score_away_by_period`: Pontuação do time visitante por período.
+   - `score_home_by_period`: Pontuação do time da casa por período.
+
+4. **Times**:
+   - `name`: Nome do time.
+   - `is_away`: Indica se o time é visitante.
+   - `is_home`: Indica se o time é da casa.
+
+5. **Linhas de Apostas**:
+   - `moneyline_away`: Linha de dinheiro para o time visitante.
+   - `moneyline_home`: Linha de dinheiro para o time da casa.
+   - `point_spread_away`: Spread de pontos para o time visitante.
+   - `point_spread_home`: Spread de pontos para o time da casa.
+   - `total_over`: Total de pontos para apostas acima.
+   - `total_under`: Total de pontos para apostas abaixo.
+
+### Exemplo de Uso na Interface de Usuário
+
+#### Exibição de Detalhes do Evento
+```html
+<div>
+  <h2>Evento: New York Jets vs San Francisco 49ers</h2>
+  <p>Data: 2024-09-10T00:15:00Z</p>
+  <p>Local: Levi's Stadium, Santa Clara, CA</p>
+  <p>Transmissão: ESPN</p>
+  <p>Status: Final</p>
+</div>
+```
+
+#### Exibição de Pontuação
+```html
+<div>
+  <h3>Pontuação</h3>
+  <p>New York Jets: 19</p>
+  <p>San Francisco 49ers: 32</p>
+  <h4>Pontuação por Período</h4>
+  <p>New York Jets: 7, 0, 6, 6</p>
+  <p>San Francisco 49ers: 3, 13, 10, 6</p>
+</div>
+```
+
+#### Exibição de Linhas de Apostas
+```html
+<div>
+  <h3>Linhas de Apostas</h3>
+  <p>Moneyline - Visitante: 190</p>
+  <p>Moneyline - Casa: -220</p>
+  <p>Spread de Pontos - Visitante: 4.5</p>
+  <p>Spread de Pontos - Casa: -4.5</p>
+  <p>Total de Pontos - Acima: 45</p>
+  <p>Total de Pontos - Abaixo: 45</p>
+</div>
+```
+
+Esses exemplos mostram como você pode usar os campos do JSON para criar uma interface de usuário que exibe informações detalhadas sobre eventos esportivos e linhas de apostas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pedro3pv: como calcular quanto a casa vai ganhar e quanto o jogador vai ganhar ?
+
+GitHub Copilot: Para calcular quanto a casa de apostas e o jogador vão ganhar com base nas odds (probabilidades) do `moneyline`, você pode usar as seguintes fórmulas:
+
+### Fórmulas
+
+1. **Para Odds Positivas (ex: +190)**:
+   - **Ganho do Jogador**: `Ganho = Aposta * (Odds / 100)`
+   - **Ganho da Casa**: `Ganho da Casa = Aposta - Ganho do Jogador`
+
+2. **Para Odds Negativas (ex: -220)**:
+   - **Ganho do Jogador**: `Ganho = Aposta * (100 / Abs(Odds))`
+   - **Ganho da Casa**: `Ganho da Casa = Aposta - Ganho do Jogador`
+
+### Exemplo de Cálculo
+
+Vamos supor que um jogador aposta $100 no time visitante com odds de +190 (`moneyline_away`).
+
+#### Odds Positivas (+190)
+- **Aposta**: $100
+- **Odds**: +190
+
+**Ganho do Jogador**:
+```python
+aposta = 100
+odds = 190
+ganho_jogador = aposta * (odds / 100)
+# ganho_jogador = 100 * (190 / 100) = 100 * 1.9 = 190
+```
+
+**Ganho da Casa**:
+```python
+ganho_casa = aposta - ganho_jogador
+# ganho_casa = 100 - 190 = -90 (a casa perde $90)
+```
+
+#### Odds Negativas (-220)
+Vamos supor que um jogador aposta $100 no time da casa com odds de -220 (`moneyline_home`).
+
+- **Aposta**: $100
+- **Odds**: -220
+
+**Ganho do Jogador**:
+```python
+aposta = 100
+odds = -220
+ganho_jogador = aposta * (100 / abs(odds))
+# ganho_jogador = 100 * (100 / 220) = 100 * 0.4545 = 45.45
+```
+
+**Ganho da Casa**:
+```python
+ganho_casa = aposta - ganho_jogador
+# ganho_casa = 100 - 45.45 = 54.55
+```
+
+### Implementação em Python
+
+Aqui está um exemplo de como você pode implementar isso em Python:
+
+```python
+def calcular_ganhos(aposta, odds):
+    if odds > 0:
+        ganho_jogador = aposta * (odds / 100)
+    else:
+        ganho_jogador = aposta * (100 / abs(odds))
+    
+    ganho_casa = aposta - ganho_jogador
+    return ganho_jogador, ganho_casa
+
+# Exemplo de uso
+aposta = 100
+odds_away = 190
+odds_home = -220
+
+ganho_jogador_away, ganho_casa_away = calcular_ganhos(aposta, odds_away)
+ganho_jogador_home, ganho_casa_home = calcular_ganhos(aposta, odds_home)
+
+print(f"Ganho do Jogador (Away): ${ganho_jogador_away:.2f}")
+print(f"Ganho da Casa (Away): ${ganho_casa_away:.2f}")
+print(f"Ganho do Jogador (Home): ${ganho_jogador_home:.2f}")
+print(f"Ganho da Casa (Home): ${ganho_casa_home:.2f}")
+```
+
+### Saída Esperada
+```plaintext
+Ganho do Jogador (Away): $190.00
+Ganho da Casa (Away): $-90.00
+Ganho do Jogador (Home): $45.45
+Ganho da Casa (Home): $54.55
+```
+
+Esses cálculos mostram quanto o jogador e a casa de apostas ganham ou perdem com base nas odds fornecidas.
