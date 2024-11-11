@@ -4,6 +4,8 @@
   (:import [java.time LocalDate]
            [java.time.format DateTimeFormatter]))
 
+(def list-sports (atom nil))
+
 (defn today-date []
   (let [formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd")]
     (.format (LocalDate/now) formatter)))
@@ -40,6 +42,10 @@
     (json/parse-string (:body response) true)))
 
 (defn sport-list [request]
-  (let [sports (get-sport)]
+  (if (nil? @list-sports)
+    (do
+      (reset! list-sports (get-sport))
+      {:status 200
+       :body @list-sports})
     {:status 200
-     :body sports}))
+     :body @list-sports}))
