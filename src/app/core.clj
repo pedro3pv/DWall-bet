@@ -3,7 +3,7 @@
             [io.pedestal.http.route :as route]
             [app.middleware :refer [json-interceptor]]
             [app.service.rundown :refer [sport-list get-open-odds]]
-            [app.saldo :refer [deposito saldo]]))
+            [app.saldo :refer [deposito saldo retirada]]))
 
 (defn funcao-hello [request]
   {:status 200
@@ -20,7 +20,8 @@
                 ["/get-sport" :get [json-interceptor sport-list] :route-name :get-sport]
                 ["/events" :post [json-interceptor get-open-odds] :route-name :events]
                 ["/deposito" :post [json-interceptor deposito] :route-name :deposito]
-                ["/saldo" :get [json-interceptor saldo] :route-name :saldo]}))
+                ["/saldo" :get [json-interceptor saldo] :route-name :saldo]
+                ["/retirada" :post [json-interceptor retirada] :route-name :retirada]}))
 
 (def http-server
   {::http/routes routes
