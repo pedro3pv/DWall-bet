@@ -1,7 +1,6 @@
 (ns app.middleware
   (:require [cheshire.core :as json]
-            [io.pedestal.interceptor :as interceptor]
-            [io.pedestal.http :as http]))
+            [io.pedestal.interceptor :as interceptor]))
 
 (defn parse-json-body [context]
   "Interceptor para converter o corpo JSON da requisição para uma estrutura Clojure."
