@@ -12,3 +12,7 @@ pom.xml.asc
 .hgignore
 .hg/
 /.idea
+/.clj-kondo
+/.lsp
+src/app/service/.DS_Store
+src/app/.DS_Store
