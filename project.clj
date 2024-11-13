@@ -11,5 +11,7 @@
                  [org.slf4j/slf4j-simple "1.7.28"]
                  [com.novemberain/monger "3.5.0"]
                  [cheshire "5.13.0"]
-                 [clj-http "3.12.3"]]
+                 [clj-http "3.12.3"]
+                 [cljsjs/react "17.0.2-0"]
+                 [cljsjs/react-dom "17.0.2-0"]]
   :repl-options {:init-ns app.core})
