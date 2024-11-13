@@ -19,8 +19,7 @@
         (let [detalhes-evento (fetch-event-details event-id)]
           (let [aposta {:event-details detalhes-evento
                         :mercado mercado
-                        :valor valor-aposta
-                        :status "ativo"}]
+                        :valor valor-aposta}]
             (add-aposta aposta)
             {:status 200
              :body {:mensagem "Aposta criada com sucesso!"
