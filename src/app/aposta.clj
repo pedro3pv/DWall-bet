@@ -30,3 +30,8 @@
   {:status 200
    :body {:mensagem "Lista de apostas criadas."
           :apostas @db-apostas}})
+
+
+(defn update-bets [request]
+
+)
