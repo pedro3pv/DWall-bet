@@ -1,0 +1,162 @@
+{
+    "mensagem": "Aposta criada com sucesso!",
+    "detalhes-aposta": {
+        "event-details": {
+            "schedule": {
+                "league_name": "National Football League",
+                "conference_competition": false,
+                "season_type": "Regular Season",
+                "season_year": 2024,
+                "event_name": "Washington at Philadelphia - 2024-11-15T01:15:00Z",
+                "attendance": "0"
+            },
+            "rotation_number_away": 313,
+            "lines": {
+                "selected_affiliate": {
+                    "line_id": 17647053,
+                    "moneyline": {
+                        "affiliate_id": 14,
+                        "format": "American",
+                        "moneyline_home": -190,
+                        "event_id": "da4261fc8024e83e7f05e94bba6313fe",
+                        "sport_id": 2,
+                        "moneyline_away": 165,
+                        "moneyline_draw": 1.0E-4,
+                        "line_id": 17647053,
+                        "moneyline_away_delta": 5,
+                        "moneyline_home_delta": -10,
+                        "moneyline_draw_delta": 0,
+                        "date_updated": "2024-11-13T19:52:57.153939Z"
+                    },
+                    "spread": {
+                        "point_spread_home_money_delta": -5,
+                        "affiliate_id": 14,
+                        "point_spread_home_money": -110,
+                        "format": "American",
+                        "point_spread_home": -3.5,
+                        "point_spread_away_delta": 0,
+                        "event_id": "da4261fc8024e83e7f05e94bba6313fe",
+                        "sport_id": 2,
+                        "line_id": 17647053,
+                        "point_spread_away_money": -110,
+                        "point_spread_away": 3.5,
+                        "point_spread_away_money_delta": 5,
+                        "point_spread_home_delta": 0,
+                        "date_updated": "2024-11-13T13:14:37.209113Z"
+                    },
+                    "total": {
+                        "affiliate_id": 14,
+                        "format": "American",
+                        "total_over_money_delta": 0,
+                        "total_over_delta": -0.5,
+                        "total_under_money_delta": 0,
+                        "total_over": 48.5,
+                        "total_under_delta": -0.5,
+                        "event_id": "da4261fc8024e83e7f05e94bba6313fe",
+                        "sport_id": 2,
+                        "line_id": 17647053,
+                        "total_over_money": -110,
+                        "total_under_money": -110,
+                        "total_under": 48.5,
+                        "date_updated": "2024-11-12T16:17:24.735661Z"
+                    },
+                    "affiliate": {
+                        "affiliate_id": 14,
+                        "affiliate_name": "Intertops",
+                        "affiliate_url": "http://bit.ly/2XkXdpa"
+                    }
+                }
+            },
+            "event_date": "2024-11-15T01:15:00Z",
+            "teams": [
+                {
+                    "team_id": 18743,
+                    "team_normalized_id": 80,
+                    "name": "Washington Redskins",
+                    "is_away": true,
+                    "is_home": false
+                },
+                {
+                    "team_id": 18813,
+                    "team_normalized_id": 79,
+                    "name": "Philadelphia Eagles",
+                    "is_away": false,
+                    "is_home": true
+                }
+            ],
+            "event_id": "da4261fc8024e83e7f05e94bba6313fe",
+            "teams_normalized": [
+                {
+                    "conference": {
+                        "conference_id": 34,
+                        "sport_id": 2,
+                        "name": "National Football Conference"
+                    },
+                    "division": {
+                        "division_id": 11,
+                        "conference_id": 34,
+                        "sport_id": 2,
+                        "name": "NFC East"
+                    },
+                    "is_home": false,
+                    "name": "Washington",
+                    "mascot": "Commanders",
+                    "division_id": 11,
+                    "is_away": true,
+                    "conference_id": 34,
+                    "record": "7-3",
+                    "ranking": 0,
+                    "team_id": 80,
+                    "abbreviation": "WSH"
+                },
+                {
+                    "conference": {
+                        "conference_id": 34,
+                        "sport_id": 2,
+                        "name": "National Football Conference"
+                    },
+                    "division": {
+                        "division_id": 11,
+                        "conference_id": 34,
+                        "sport_id": 2,
+                        "name": "NFC East"
+                    },
+                    "is_home": true,
+                    "name": "Philadelphia",
+                    "mascot": "Eagles",
+                    "division_id": 11,
+                    "is_away": false,
+                    "conference_id": 34,
+                    "record": "7-2",
+                    "ranking": 0,
+                    "team_id": 79,
+                    "abbreviation": "PHI"
+                }
+            ],
+            "sport_id": 2,
+            "rotation_number_home": 314,
+            "score": {
+                "winner_home": 0,
+                "score_away": 0,
+                "venue_name": "Lincoln Financial Field",
+                "game_clock": 0,
+                "broadcast": "Prime Video",
+                "game_period": 0,
+                "event_status_detail": "11/14 - 8:15 PM EST",
+                "event_status": "STATUS_SCHEDULED",
+                "event_id": "da4261fc8024e83e7f05e94bba6313fe",
+                "updated_at": "2024-09-18T12:55:51Z",
+                "venue_location": "Philadelphia, PA",
+                "score_away_by_period": [],
+                "score_home_by_period": [],
+                "display_clock": "0.00",
+                "score_home": 0,
+                "winner_away": 0
+            },
+            "event_uuid": "11ef-a2ef-08c84200-8ec8-683ea1124f84"
+        },
+        "mercado": "Gols",
+        "valor": 100
+    },
+    "saldo-atualizado": 0
+}
