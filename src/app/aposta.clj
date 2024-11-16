@@ -49,6 +49,16 @@
   (cond
     (< value 0) (inc (double (abs (/ 100 value))))
     (> value 0) (double (/ value 100))))))
+
+(defn calculate-handicap-home [pontos_home pontos_away handicap-casa handicap-fora odds-casa odds-fora]
+  (cond
+    (and (> pontos_home pontos_away) (> (+ pontos_home handicap-casa) pontos_away)) odds-casa
+    :else 0))
+  
+(defn calculate-handicap-away [pontos_home pontos_away handicap-casa handicap-fora odds-casa odds-fora]
+  (cond
+    (and (> pontos_away pontos_home) (> (+ pontos_away handicap-fora) pontos_home)) odds-fora
+    :else 0))
     
 
 (defn calculate-odd [aposta api_result]
@@ -56,9 +66,17 @@
   (def mercado (int (get-in aposta [:mercado])))
   (def resultado_home (int (get-in api_result [:score :winner_home])))
   (def resultado_away (int (get-in api_result [:score :winner_away])))
+  (def pontos_home (int (get-in api_result [:score :score_home])))
+  (def pontos_away (int (get-in api_result [:score :score_away])))
+  (def handicap-casa (double (get-in aposta [:event-details :lines :spread :point_spread_home])))
+  (def handicap-fora (double (get-in aposta [:event-details :lines :spread :point_spread_away])))
+  (def odds-casa (double (get-in aposta [:event-details :lines :spread :point_spread_home_money])))
+  (def odds-fora (double (get-in aposta [:event-details :lines :spread :point_spread_away_money])))
   (cond
     (and (= mercado 0) (= resultado_away 1)) (calculate-moneyline-away list_lines)
     (and (= mercado 1) (= resultado_home 1)) (calculate-moneyline-home list_lines)
+    (and (= mercado 2) (= resultado_home 1)) (calculate-handicap-home pontos_home pontos_away handicap-casa handicap-fora odds-casa odds-fora)
+    (and (= mercado 3) (= resultado_away 1)) (calculate-handicap-away pontos_home pontos_away handicap-casa handicap-fora odds-casa odds-fora)
     :else 0))
 
 (defn update-bets [request]
