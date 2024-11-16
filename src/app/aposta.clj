@@ -1,7 +1,8 @@
 (ns app.aposta
-  (:require [app.db.db-saldo :refer [get-saldo remove-saldo]]
+  (:require [app.db.db-saldo :refer [add-saldo get-saldo remove-saldo]]
             [app.db.db-apostas :refer [add-aposta db-apostas remove-aposta]]
-            [app.service.rundown :refer [fetch-event-details]]))
+            [app.service.rundown :refer [fetch-event-details]]
+            [java-time :as jt]))
 
 (defn criar-aposta [request]
   (let [valor-aposta (get-in request [:json-body :valor] 0)
@@ -31,32 +32,51 @@
    :body {:mensagem "Lista de apostas criadas."
           :apostas @db-apostas}})
 
+(defn calculate-moneyline-away [list_lines]
+  (cond
+    (< (:moneyline_away list_lines) 0) (double (Math/abs (/ 100 (:moneyline_away list_lines))))
+    (> (:moneyline_away list_lines) 0) (double (inc (/ (:moneyline_away list_lines) 100)))))
+
+(defn calculate-moneyline-home [list_lines]
+  (cond
+    (< (:moneyline_home list_lines) 0) (double (Math/abs (/ 100 (:moneyline_home list_lines))))
+    (> (:moneyline_home list_lines) 0) (double (inc (/ (:moneyline_home list_lines) 100)))))
+    
+
 (defn calculate-odd [aposta]
-  (let [event-odds (get-in aposta [:lines :moneyline])]
-    (cond
-      (and (< (:moneyline_home event-odds) 0) (= (int (:mercado event-odds)) 0)) (Math/abs (/ 100 (:moneyline_home event-odds)))
-      (and (> (:moneyline_home event-odds) 0) (= (int (:mercado event-odds)) 1)) (inc (/ (:moneyline_home event-odds) 100))
-      (and (< (:moneyline_away event-odds) 0) (= (int (:mercado event-odds)) 2)) (Math/abs (/ 100 (:moneyline_away event-odds)))
-      (and (> (:moneyline_away event-odds) 0) (= (int (:mercado event-odds)) 3)) (inc (/ (:moneyline_away event-odds) 100))
-      :else 1)))
+  (def list_lines (get-in aposta [:event-details :lines :selected_affiliate]))
+  (def mercado (int (get-in aposta [:mercado])))
+  (cond
+    (= mercado 0) (calculate-moneyline-away list_lines)
+    (= mercado 1) (calculate-moneyline-home list_lines)))
 
 (defn update-bets [request]
   (try
-    (let [apostas @db-apostas
-          filter_bets (filter #(and (= (:status %) "ativo") 
-                                    (<= (:event_date %) (java.time.Instant/now))) apostas)
-          event_details (map #(fetch-event-details (:event-id %)) filter_bets)
-          filter_event_details (filter #(= (get-in % [:score :event_status]) "STATUS_FINAL") event_details)
-          event-ids (set (map :id filter_event_details))
-          filtered-apostas (filter #(contains? event-ids (:id %)) apostas)
-          final_bets (map #(assoc % :status "finalizado") filtered-apostas)]
-      (dorun (map #(remove-aposta (:id %)) filtered-apostas))
-      (dorun (map #(add-saldo (calculate-odd %)) filtered-apostas))
-      (dorun (map #(add-aposta %) final_bets))
+    (def filter-bets
+      (filter
+        #(and
+          (= (:status %) "ativo")
+          (jt/before? (jt/instant (get-in % [:event-details :event_date])) (jt/instant)))
+        @db-apostas))
+      (println filter-bets)
+      (def event_details (map #(fetch-event-details (get-in % [:event-details :event_id])) filter-bets))
+      (println event_details)
+      (def filter_event_details (filter #(= (get-in % [:score :event_status]) "STATUS_FINAL") event_details))
+      (println filter_event_details)
+      (def event-ids (set (map #(get-in % [:event-details :event_id]) @db-apostas)))
+      (println event-ids)
+      (def filtered-apostas (filter #(contains? event-ids (get-in % [:event-details :event_id])) @db-apostas))
+      (println filtered-apostas)
+      (def final_bets (map #(assoc % :status "finalizado") filtered-apostas))
+      (println final_bets)
+      (dorun (map #(remove-aposta (get-in % [:id])) filtered-apostas))
+      (dorun (map #(println (calculate-odd %)) filtered-apostas))
+      ;; (dorun (map #(add-saldo (calculate-odd %)) filtered-apostas))
+      ;; (dorun (map #(add-aposta %) final_bets))
       {:status 200
        :body {:mensagem "Apostas atualizadas com sucesso!"
-              :apostas final_bets}})
-    (catch Exception e
+              :apostas final_bets}}
+    (catch Exception e  
       {:status 500
        :body {:mensagem "Ocorreu um erro ao atualizar as apostas."
-              :erro (.getMessage e)}}))
+              :erro (str e)}})))
