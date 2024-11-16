@@ -33,22 +33,33 @@
           :apostas @db-apostas}})
 
 (defn calculate-moneyline-away [list_lines]
+(if (= (get-in list_lines [:moneyline :moneyline_away]) 1.0E-4)
+  (int 0)
+  (do
+  (def value (int (get-in list_lines [:moneyline :moneyline_away])))
   (cond
-    (< (:moneyline_away list_lines) 0) (double (Math/abs (/ 100 (:moneyline_away list_lines))))
-    (> (:moneyline_away list_lines) 0) (double (inc (/ (:moneyline_away list_lines) 100)))))
+    (< value 0) (inc (double (abs (/ 100 value))))
+    (> value 0) (double (/ value 100))))))
 
 (defn calculate-moneyline-home [list_lines]
+(if (= (get-in list_lines [:moneyline :moneyline_home]) 1.0E-4)
+  (int 0)
+  (do
+  (def value (int (get-in list_lines [:moneyline :moneyline_home])))
   (cond
-    (< (:moneyline_home list_lines) 0) (double (Math/abs (/ 100 (:moneyline_home list_lines))))
-    (> (:moneyline_home list_lines) 0) (double (inc (/ (:moneyline_home list_lines) 100)))))
+    (< value 0) (inc (double (abs (/ 100 value))))
+    (> value 0) (double (/ value 100))))))
     
 
-(defn calculate-odd [aposta]
+(defn calculate-odd [aposta api_result]
   (def list_lines (get-in aposta [:event-details :lines :selected_affiliate]))
   (def mercado (int (get-in aposta [:mercado])))
+  (def resultado_home (int (get-in api_result [:score :winner_home])))
+  (def resultado_away (int (get-in api_result [:score :winner_away])))
   (cond
-    (= mercado 0) (calculate-moneyline-away list_lines)
-    (= mercado 1) (calculate-moneyline-home list_lines)))
+    (and (= mercado 0) (= resultado_away 1)) (calculate-moneyline-away list_lines)
+    (and (= mercado 1) (= resultado_home 1)) (calculate-moneyline-home list_lines)
+    :else 0))
 
 (defn update-bets [request]
   (try
@@ -58,24 +69,18 @@
           (= (:status %) "ativo")
           (jt/before? (jt/instant (get-in % [:event-details :event_date])) (jt/instant)))
         @db-apostas))
-      (println filter-bets)
       (def event_details (map #(fetch-event-details (get-in % [:event-details :event_id])) filter-bets))
-      (println event_details)
       (def filter_event_details (filter #(= (get-in % [:score :event_status]) "STATUS_FINAL") event_details))
-      (println filter_event_details)
-      (def event-ids (set (map #(get-in % [:event-details :event_id]) @db-apostas)))
-      (println event-ids)
+      (def event-ids (set (map #(get-in % [:event_id]) filter_event_details)))
       (def filtered-apostas (filter #(contains? event-ids (get-in % [:event-details :event_id])) @db-apostas))
-      (println filtered-apostas)
       (def final_bets (map #(assoc % :status "finalizado") filtered-apostas))
-      (println final_bets)
       (dorun (map #(remove-aposta (get-in % [:id])) filtered-apostas))
-      (dorun (map #(println (calculate-odd %)) filtered-apostas))
-      ;; (dorun (map #(add-saldo (calculate-odd %)) filtered-apostas))
-      ;; (dorun (map #(add-aposta %) final_bets))
+      (dorun (map #(add-saldo (* (double (:valor %)) (calculate-odd %1 %2))) filtered-apostas filter_event_details))
+      (dorun (map #(add-aposta %) final_bets))
       {:status 200
        :body {:mensagem "Apostas atualizadas com sucesso!"
-              :apostas final_bets}}
+              :apostas final_bets
+              :saldo-atualizado (get-saldo)}}
     (catch Exception e  
       {:status 500
        :body {:mensagem "Ocorreu um erro ao atualizar as apostas."
