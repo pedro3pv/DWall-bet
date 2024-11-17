@@ -13,5 +13,6 @@
                  [cheshire "5.13.0"]
                  [clj-http "3.12.3"]
                  [clojure.java-time "1.4.2"]
-                 [com.novemberain/monger "3.1.0"]]
+                 [org.mongodb/mongodb-driver-sync "4.11.1"]
+                 [mongo-driver-3 "0.8.0"]]
   :repl-options {:init-ns app.core})
