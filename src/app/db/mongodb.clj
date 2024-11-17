@@ -18,11 +18,12 @@
     (disconnect client)))
 
 (defn get-apostas-mongodb []
-  (let [db (start-connection)
-        client (:client db)
-        db-name (:db db)]
-    (mc/find db-name "apostas" {})
-    (disconnect client)))
+  (def db (start-connection))
+  (def client (:client db))
+  (def db-name (:db db))
+  (def apostas (mc/find db-name "apostas" {}))
+  (disconnect client)
+  apostas)
 
 (defn remove-aposta-mongodb [id]
   (let [db (start-connection)
@@ -41,8 +42,9 @@
     (disconnect client)))
 
 (defn get-saldo-mongodb []
-  (let [db (start-connection)
-        client (:client db)
-        db-name (:db db)]
-    (mc/find db-name "saldos" {})
-    (disconnect client)))
+  (def db (start-connection))
+  (def client (:client db))
+  (def db-name (:db db))
+  (def saldo (mc/find db-name "saldos" {:_id 0}))
+  (disconnect client)
+  saldo)
