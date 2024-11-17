@@ -24,5 +24,6 @@
   (swap! db-apostas conj (assoc (dissoc (get-aposta id) :status) :status "inativo")))
 
 (defn loading-apostas-mongodb []
-  (def apostas (map #(:apostas %) (get-apostas-mongodb)))
+  (def apostas-mongodb (get-apostas-mongodb))
+  (def apostas (map #(-> % :aposta) apostas-mongodb))
   (reset! db-apostas apostas))
