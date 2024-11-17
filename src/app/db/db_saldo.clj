@@ -15,3 +15,6 @@
     (add-saldo-mongodb (- @db-saldo valor))
     (swap! db-saldo - valor)
 )
+
+(defn loading-saldo-mongodb []
+    (reset! db-saldo (-> (get-saldo-mongodb) first :saldo)))
