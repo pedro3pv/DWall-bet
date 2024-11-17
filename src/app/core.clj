@@ -4,7 +4,8 @@
             [app.middleware :refer [json-interceptor]]
             [app.service.rundown :refer [sport-list get-open-odds get-event-details]]
             [app.saldo :refer [deposito saldo retirada]]
-            [app.aposta :refer [criar-aposta listar-apostas update-bets]]))
+            [app.aposta :refer [criar-aposta listar-apostas update-bets]]
+            [app.db.db-apostas :refer [loading-apostas-mongodb]]))
 
 (defn funcao-hello [request]
   {:status 200
@@ -32,6 +33,8 @@
                 ["/criar-aposta" :post [json-interceptor criar-aposta] :route-name :criar-aposta]
                 ["/listar-apostas" :get [json-interceptor listar-apostas] :route-name :listar-apostas]
                 ["/update-bets" :get [json-interceptor update-bets] :route-name :update-bets]}))
+
+(loading-apostas-mongodb)
 
 (def http-server
   {::http/routes routes
