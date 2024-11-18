@@ -1,6 +1,7 @@
-import { CalendarIcon } from 'lucide-react'
+import { Award, Beer, CalendarIcon, Flag, Globe, Snowflake, Swords, Trophy } from 'lucide-react'
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button'
 
 const matches = [
   { id: 1, homeTeam: "Barcelona", awayTeam: "Real Madrid", date: "2024-03-15" },
@@ -13,6 +14,30 @@ const matches = [
 export default function Component() {
   return (
     <div className="dark min-h-screen bg-background text-foreground p-4">
+          {/* Sports Navigation */}
+    <nav className="bg-card p-2 border-b border-border">
+      <ul className="flex space-x-2 overflow-x-auto">
+        {[
+          { icon: Flag, label: 'NFL' },
+          { icon: Flag, label: 'NBA' },
+          { icon: Trophy, label: 'LaLiga' },
+          { icon: Swords, label: 'UFC' },
+          { icon: Globe, label: 'FIFA' },
+          { icon: Award, label: 'Premier League' },
+          { icon: Beer, label: 'MLB' },
+          { icon: Snowflake, label: 'NHL' },
+          { icon: Flag, label: 'F1' },
+          { icon: Flag, label: 'Tennis' },
+        ].map(({ icon: Icon, label }) => (
+          <li key={label}>
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              <Icon className="w-4 h-4 mr-2" />
+              {label}
+            </Button>
+          </li>
+        ))}
+      </ul>
+    </nav>
       <Card className="w-full max-w-3xl mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Próximos Jogos</CardTitle>
