@@ -66,7 +66,7 @@
                   parsed-response (json/parse-string (:body response) true)
                   lines (:lines parsed-response)
                   selected-odds (odds-de-afiliado-especifico lines)]
-              (assoc parsed-response :lines {"selected_affiliate" selected-odds}))
+              (assoc parsed-response :lines {:selected_affiliate selected-odds}))
             (catch Exception e
               (println (str "Erro ao buscar detalhes dos eventos: " (.getMessage e)))
               {:status 404
