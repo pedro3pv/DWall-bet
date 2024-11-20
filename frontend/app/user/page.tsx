@@ -1,42 +1,76 @@
-"use client"; // Adicione essa linha no início do arquivo
+"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-export default function Component() {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
-  const [deposito, setDeposito] = useState(""); // Estado para o valor do depósito
+interface Team {
+  name: string;
+}
 
-  // Dados de exemplo de apostas
-  const apostas = [
-    {
-      times: ["Flamengo", "Palmeiras"],
-      dataEvento: "20/11/2024 - 18:00",
-      mercados: [
-        { nome: "Vencedor do Jogo", valor: "R$50,00" },
-        { nome: "Total de Gols", valor: "R$30,00" },
-      ],
-      status: "Pendente",
-    },
-    {
-      times: ["Corinthians", "São Paulo"],
-      dataEvento: "22/11/2024 - 20:00",
-      mercados: [
-        { nome: "Ambos Marcam", valor: "R$40,00" },
-        { nome: "Handicap Asiático", valor: "R$20,00" },
-      ],
-      status: "Vencida",
-    },
-    {
-      times: ["Internacional", "Grêmio"],
-      dataEvento: "25/11/2024 - 21:00",
-      mercados: [
-        { nome: "Primeiro Gol", valor: "R$25,00" },
-      ],
-      status: "Perdida",
-    },
-  ];
+interface Moneyline {
+  moneyline_home: string;
+  moneyline_away: string;
+}
+
+interface Line {
+  moneyline?: Moneyline;
+}
+
+interface EventDetails {
+  teams: Team[];
+  event_date: string;
+  lines: Line[];
+}
+
+interface Aposta {
+  status: string;
+  "event-details": EventDetails;
+  valor: number;
+  mercado: number;
+}
+
+const mercados: { [key: number]: string } = {
+  0: "Vitória do Time de Fora",
+  1: "Vitória do Time da Casa",
+  2: "Handicap do Time da Casa",
+  3: "Handicap do Time de Fora",
+};
+
+export default function Component() {
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [deposito, setDeposito] = useState("");
+  const [apostas, setApostas] = useState<Aposta[]>([]);
+  const [saldo, setSaldo] = useState<number | null>(null); // Estado para armazenar o saldo
+
+  // Função para buscar as apostas
+  const fetchApostas = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/listar-apostas");
+      const data = await response.json();
+      if (data.apostas) {
+        setApostas(data.apostas);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar apostas:", error);
+    }
+  };
+
+  // Função para buscar o saldo
+  const fetchSaldo = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/saldo");
+      const data = await response.json();
+      setSaldo(data.saldo); // Atualiza o estado com o saldo retornado pelo backend
+    } catch (error) {
+      console.error("Erro ao buscar saldo:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchApostas();
+    fetchSaldo(); // Chama a função para buscar o saldo ao carregar o componente
+  }, []);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white p-4 relative">
@@ -45,13 +79,10 @@ export default function Component() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-gray-400">pedroarg_</p>
-            <h1 className="text-4xl font-bold flex items-center gap-2">
-              R$13,08
-            </h1>
           </div>
           <Button
             className="bg-green-600 hover:bg-green-700 text-white rounded-full px-8"
-            onClick={() => setIsModalOpen(true)} // Abrir o modal
+            onClick={() => setIsModalOpen(true)}
           >
             Depositar
           </Button>
@@ -59,8 +90,11 @@ export default function Component() {
 
         {/* Balance Info */}
         <div>
-          <p className="text-gray-400">Disponível</p>
-          <p className="text-2xl font-bold">R$13,08</p>
+          <p className="text-gray-400">Saldo Disponível</p>
+          {/* Exibe o saldo se ele estiver disponível */}
+          <p className="text-2xl font-bold">
+            {saldo !== null ? `R$${saldo.toFixed(2)}` : "Carregando..."}
+          </p>
         </div>
 
         {/* Lista de Apostas */}
@@ -69,14 +103,14 @@ export default function Component() {
             <Card key={index} className="bg-zinc-900 border-gray-800 p-4">
               <div className="flex flex-col space-y-2">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-bold text-gray-400">
-                    {aposta.times[0]} vs {aposta.times[1]}
+                  <h2 className="text-xl font-bold text-white">
+                    {aposta["event-details"].teams[0].name} vs {aposta["event-details"].teams[1].name}
                   </h2>
                   <span
                     className={`text-sm font-bold px-2 py-1 rounded ${
-                      aposta.status === "Vencida"
+                      aposta.status === "vencido"
                         ? "bg-green-600 text-white"
-                        : aposta.status === "Perdida"
+                        : aposta.status === "perdido"
                         ? "bg-red-600 text-white"
                         : "bg-yellow-600 text-white"
                     }`}
@@ -84,17 +118,14 @@ export default function Component() {
                     {aposta.status}
                   </span>
                 </div>
-                <p className="text-gray-400 text-sm">{aposta.dataEvento}</p>
+                <p className="text-gray-400 text-sm">
+                  {new Date(aposta["event-details"].event_date).toLocaleString()}
+                </p>
                 <div className="space-y-1">
-                  {aposta.mercados.map((mercado, mercadoIndex) => (
-                    <div
-                      key={mercadoIndex}
-                      className="flex justify-between text-sm text-gray-300"
-                    >
-                      <span>{mercado.nome}</span>
-                      <span>{mercado.valor}</span>
-                    </div>
-                  ))}
+                  <div className="flex justify-between text-sm text-gray-300">
+                    <span>Mercado: {mercados[aposta.mercado as keyof typeof mercados] || "Desconhecido"}</span>
+                    <span>Valor Apostado: R${aposta.valor}</span>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -102,7 +133,6 @@ export default function Component() {
         </div>
       </div>
 
-      {/* Modal de Depósito */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-zinc-900 text-white p-6 rounded-lg space-y-4 w-80">
@@ -118,8 +148,8 @@ export default function Component() {
               <Button
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
                 onClick={() => {
-                  setIsModalOpen(false); // Fechar o modal
-                  setDeposito(""); // Limpar o valor do depósito
+                  setIsModalOpen(false);
+                  setDeposito(""); 
                 }}
               >
                 Cancelar
@@ -127,8 +157,8 @@ export default function Component() {
               <Button
                 className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
                 onClick={() => {
-                  setIsModalOpen(false); // Fechar o modal
-                  setDeposito(""); // Limpar o valor do depósito
+                  setIsModalOpen(false); 
+                  setDeposito("");
                 }}
               >
                 Confirmar

@@ -1,6 +1,7 @@
 (ns app.core
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
+            [ring.middleware.cors :refer [wrap-cors]]
             [app.middleware :refer [json-interceptor]]
             [app.service.rundown :refer [sport-list get-open-odds get-event-details]]
             [app.saldo :refer [deposito saldo retirada]]
@@ -39,7 +40,8 @@
   {::http/routes routes
    ::http/port 8080
    ::http/type :jetty
-   ::http/join? false})
+   ::http/join? false
+   ::http/middleware [wrap-cors]})
 
 (loading-apostas-mongodb)
 (loading-saldo-mongodb)
