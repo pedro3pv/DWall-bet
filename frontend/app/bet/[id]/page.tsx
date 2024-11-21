@@ -72,20 +72,39 @@ export default function Component() {
               <Card className="bg-card border-border">
                 <CardContent className="p-4">
                   <h3 className="text-lg font-semibold mb-4 text-primary">Resultado Final (1/2)</h3>
-                  <div className="grid grid-cols-3 gap-4">
-                    <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
-                      <span>{event.teams?.find((team: { name: string, is_home: boolean }) => team.is_home)?.name}</span>
-                      <span className="text-lg font-bold text-primary">{event.lines.selected_affiliate.moneyline.moneyline_home}</span>
-                    </Button>
-                    <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
-                      <span>Empate</span>
-                      <span className="text-lg font-bold text-primary">3.30</span>
-                    </Button>
-                    <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
-                      <span>{event.teams?.find((team: { name: string, is_away: boolean }) => team.is_away)?.name}</span>
-                      <span className="text-lg font-bold text-primary">{event.lines.selected_affiliate.moneyline.moneyline_away}</span>
-                    </Button>
-                  </div>
+                    {
+                      event.lines.selected_affiliate.moneyline.moneyline_home == "0.0001" || event.lines.selected_affiliate.moneyline.moneyline_away == "0.0001"  ? (
+                        <div className="grid grid-cols-3 gap-4">
+                          <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
+                            <span>{event.teams?.find((team: { name: string, is_home: boolean }) => team.is_home)?.name}</span>
+                            <span className="text-lg font-bold text-primary">Sem ODD</span>
+                          </Button>
+                          <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
+                            <span>Empate</span>
+                            <span className="text-lg font-bold text-primary">3.30</span>
+                          </Button>
+                          <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
+                            <span>{event.teams?.find((team: { name: string, is_away: boolean }) => team.is_away)?.name}</span>
+                            <span className="text-lg font-bold text-primary">Sem ODD</span>
+                          </Button>
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-3 gap-4">
+                          <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
+                            <span>{event.teams?.find((team: { name: string, is_home: boolean }) => team.is_home)?.name}</span>
+                            <span className="text-lg font-bold text-primary">{event.lines.selected_affiliate.moneyline.moneyline_home}</span>
+                          </Button>
+                          <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
+                            <span>Empate</span>
+                            <span className="text-lg font-bold text-primary">3.30</span>
+                          </Button>
+                          <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
+                            <span>{event.teams?.find((team: { name: string, is_away: boolean }) => team.is_away)?.name}</span>
+                            <span className="text-lg font-bold text-primary">{event.lines.selected_affiliate.moneyline.moneyline_away}</span>
+                          </Button>
+                        </div>
+                      )
+                    }
                 </CardContent>
               </Card>
 
