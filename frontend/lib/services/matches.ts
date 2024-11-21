@@ -25,6 +25,7 @@ function transformData(data: any): { id: number, homeTeam: string, awayTeam: str
         id: schedule.id,
         homeTeam: schedule.home_team,
         awayTeam: schedule.away_team,
-        date: new Date(schedule.date_event).toISOString().split('T')[0]
+        date: new Date(schedule.date_event).toISOString().split('T')[0],
+        event_id: schedule.event_id
     }));
 }
