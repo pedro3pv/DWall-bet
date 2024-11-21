@@ -94,7 +94,7 @@
       (def event_details (map #(fetch-event-details (get-in % [:event-details :event_id])) filter-bets))
       (def filter_event_details (filter #(= (get-in % [:score :event_status]) "STATUS_FINAL") event_details))
       (def event-ids (set (map #(get-in % [:event_id]) filter_event_details)))
-      (def filtered-apostas (filter #(contains? event-ids (get-in % [:event-details :event_id])) @db-apostas))
+      (def filtered-apostas (filter #(contains? event-ids (get-in % [:event-details :event_id])) filter-bets))
       (dorun (map #(remove-aposta (get-in % [:id])) filtered-apostas))
       (dorun (map #(add-saldo (* (double (:valor %)) (calculate-odd %1 %2))) filtered-apostas filter_event_details))
       (def final_bets (map #(if (= (calculate-odd %1 %2) 0) (assoc % :status "perdido") (assoc % :status "vencido")) filtered-apostas filter_event_details))

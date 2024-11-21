@@ -11,12 +11,17 @@
       context)))
 
 (defn generate-json-response [context]
-  "Interceptor para converter respostas de estruturas Clojure para JSON."
-  (let [body (:response context)]
-    (if (or (map? (:body body)) (vector? (:body body)))
-      (assoc-in (update context :response update :body json/generate-string)
-                [:response :headers "Content-Type"] "application/json")
-      context)))
+  "Interceptor para converter respostas de estruturas Clojure para JSON e adicionar headers CORS."
+  (let [body (:response context)
+        origin (get-in context [:request :headers "origin"])]
+    (-> context
+        (assoc-in [:response :headers "Access-Control-Allow-Origin"] "*")
+        (assoc-in [:response :headers "Access-Control-Allow-Headers"] "Content-Type, Origin, Accept")
+        (assoc-in [:response :headers "Access-Control-Allow-Methods"] "GET, POST, PUT, DELETE, OPTIONS")
+        (assoc-in [:response :headers "Access-Control-Max-Age"] "3600")
+        (assoc-in [:response :headers "Access-Control-Expose-Headers"] "Location, Content-Location")
+        (update :response update :body json/generate-string)
+        (assoc-in [:response :headers "Content-Type"] "application/json"))))
 
 (def json-interceptor
   "Combina os dois interceptors em um único para Pedestal."
