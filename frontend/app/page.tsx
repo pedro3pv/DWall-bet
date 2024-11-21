@@ -4,10 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useSearchParams } from 'next/navigation'
 import { fetchDataEventsInSchedule } from '@/lib/services/matches'
 import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Component() { 
   const searchParams = useSearchParams()
-  const id = searchParams.get('id')
+  const id = searchParams.get('id') || 2
   const [matches, setMatches] = useState([])
 
   useEffect(() => {
@@ -30,19 +31,21 @@ export default function Component() {
         </CardHeader>
         <CardContent>
           <ul className="space-y-4">
-            {matches.map((match: { id: Key | null | undefined; homeTeam: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; awayTeam: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; date: string | number | Date }) => (
+            {matches.map((match: { id: Key | null | undefined; homeTeam: string; awayTeam: string; date: string | number | Date; event_id: string | number }) => (
               <li key={match.id} className="bg-card rounded-lg shadow p-4 border border-border">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
-                    <span className="font-semibold">{match.homeTeam}</span>
-                    <span className="text-muted-foreground hidden sm:inline">vs</span>
-                    <span className="font-semibold">{match.awayTeam}</span>
+                <Link key={match.event_id} href={`/bet/${match.event_id}`}>
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+                      <span className="font-semibold">{match.homeTeam}</span>
+                      <span className="text-muted-foreground hidden sm:inline">vs</span>
+                      <span className="font-semibold">{match.awayTeam}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <CalendarIcon className="w-4 h-4" />
+                      <span>{new Date(match.date).toLocaleDateString('pt-BR')}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <CalendarIcon className="w-4 h-4" />
-                    <span>{new Date(match.date).toLocaleDateString('pt-BR')}</span>
-                  </div>
-                </div>
+                </Link>
               </li>
             ))}
           </ul>
