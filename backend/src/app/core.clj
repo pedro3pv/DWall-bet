@@ -2,7 +2,7 @@
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
             [app.middleware :refer [json-interceptor]]
-            [app.service.rundown :refer [sport-list get-open-odds get-event-details]]
+            [app.service.rundown :refer [sport-list get-open-odds get-event-details get-schedule]]
             [app.saldo :refer [deposito saldo retirada]]
             [app.aposta :refer [criar-aposta listar-apostas update-bets]]
             [app.db.db-apostas :refer [loading-apostas-mongodb]]
@@ -33,7 +33,8 @@
                 ["/retirada" :post [json-interceptor retirada] :route-name :retirada]
                 ["/criar-aposta" :post [json-interceptor criar-aposta] :route-name :criar-aposta]
                 ["/listar-apostas" :get [json-interceptor listar-apostas] :route-name :listar-apostas]
-                ["/update-bets" :get [json-interceptor update-bets] :route-name :update-bets]}))
+                ["/update-bets" :get [json-interceptor update-bets] :route-name :update-bets]
+                ["/schedule" :post [json-interceptor get-schedule] :route-name :schedule]}))
 
 (def http-server
   {::http/routes routes

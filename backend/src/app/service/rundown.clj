@@ -29,6 +29,29 @@
               {:status 404
                :body (str "Erro ao buscar odds abertas")}))))
 
+(defn schendule [sport-id]
+  (let [date (today-date)
+        url (str (format "https://therundown-therundown-v1.p.rapidapi.com/sports/%d/schedule" sport-id))
+        response (try
+                   (client/get url {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
+                                              :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
+                                    :query-params {:from date
+                                                   :offset "180"
+                                                   :limit "20"}})
+                   (catch Exception e
+                     (println (str "Erro ao buscar schedule: " (.getMessage e)))
+                     nil))]
+    (if response
+      (json/parse-string (:body response) true)
+      {:status 404
+       :body "Erro ao buscar schedule"})))
+
+(defn get-schedule [request]
+  (let [id (:id (:json-body request))
+        schedule (schendule id)]
+    {:status 200
+     :body schedule}))
+
 (defn get-open-odds [request]
   (let [id (:id (:json-body request))
         odds (open-odds id)]
@@ -62,7 +85,8 @@
             (let [response (client/get (str "https://therundown-therundown-v1.p.rapidapi.com/events/" event-id)
                                        {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
                                                   :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
-                                        :query-params {:include "teams,odds"}})
+                                        :query-params {:include "teams,odds"
+                                                       :offset "180"}})
                   parsed-response (json/parse-string (:body response) true)
                   lines (:lines parsed-response)
                   selected-odds (odds-de-afiliado-especifico lines)]
