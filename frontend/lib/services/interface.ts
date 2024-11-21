@@ -1,7 +1,7 @@
-import { Award, Beer, Flag, Globe, LogOut, Menu, Snowflake, Swords, Trophy } from "lucide-react";
-import { CiFootball, CiBasketball } from "react-icons/ci";
-import { SiF1 } from "react-icons/si";
-import { IoTennisballOutline } from "react-icons/io5";
+import { Award, Snowflake, Swords } from "lucide-react";
+import { CiFootball } from "react-icons/ci";
+import { RiBasketballLine } from "react-icons/ri";
+import { PiHockeyThin, PiSoccerBall } from "react-icons/pi";
 
 export async function fetchDataInterface(): Promise<any> {
     try {
@@ -19,16 +19,15 @@ export async function fetchDataInterface(): Promise<any> {
 
 function transformData(data: any): { icon: any, label: string, id: number }[] {
     const iconMap: { [key: string]: any } = {
+        "NCAA Football": CiFootball,
         "NFL": CiFootball,
-        "NBA": CiBasketball,
-        "LaLiga": Trophy,
+        "NCAA Men's Basketball": RiBasketballLine ,
+        "NHL": PiHockeyThin,
         "UFC/MMA": Swords,
-        "FIFA": Globe,
+        "MLS": PiSoccerBall,
         "EPL": Award,
-        "MLB": Beer,
-        "NHL": Snowflake,
-        "F1": SiF1,
-        "Tennis": IoTennisballOutline
+        "UEFACHAMP": PiSoccerBall,
+        "JPN1": Snowflake,
     };
 
     return data.sports.map((sport: any) => ({
