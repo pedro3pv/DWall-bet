@@ -3,7 +3,7 @@ import { CalendarIcon } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useSearchParams } from 'next/navigation'
 import { fetchDataEventsInSchedule } from '@/lib/services/matches'
-import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, useState, useEffect } from 'react'
+import { Key, useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Component() { 
