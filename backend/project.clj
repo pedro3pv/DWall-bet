@@ -14,8 +14,7 @@
                  [clj-http "3.12.3"]
                  [clojure.java-time "1.4.2"]
                  [org.mongodb/mongodb-driver-sync "4.11.1"]
-                 [mongo-driver-3 "0.8.0"]
-                 [ring-cors "0.1.13"]]
+                 [mongo-driver-3 "0.8.0"]]
   :repl-options {:init-ns app.core}
   :main app.core)
  
