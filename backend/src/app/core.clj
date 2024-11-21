@@ -40,7 +40,8 @@
   {::http/routes routes
    ::http/port 8080
    ::http/type :jetty
-   ::http/join? false})
+   ::http/join? false
+   ::http/allowed-origins (constantly true)})
 
 (loading-apostas-mongodb)
 (loading-saldo-mongodb)
