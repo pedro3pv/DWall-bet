@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { fetchDataInterface } from "@/lib/services/interface";
-import { LuShoppingCart } from "react-icons/lu";
 import { useSearchParams } from "next/navigation";
+import { CartPopover } from "./cart-popover";
 
 export function SiteHeader() {
   const [sports, setSports] = useState([]);
@@ -41,9 +41,7 @@ export function SiteHeader() {
         })}
           </ul>
         </nav>
-        <Button variant="ghost" size="sm" className="ml-auto mr-10 text-muted-foreground hover:text-foreground" onClick={() => window.location.href = `/?id=${id}`}>
-          <LuShoppingCart size={24} />
-        </Button>
+        <CartPopover />
       </div>
     </header>
   );
