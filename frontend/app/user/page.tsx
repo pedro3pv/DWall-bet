@@ -38,12 +38,11 @@ const mercados: { [key: number]: string } = {
 };
 
 export default function Component() {
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [deposito, setDeposito] = useState("");
   const [apostas, setApostas] = useState<Aposta[]>([]);
-  const [saldo, setSaldo] = useState<number | null>(null); // Estado para armazenar o saldo
+  const [saldo, setSaldo] = useState<number | null>(null);
 
-  // Função para buscar as apostas
   const fetchApostas = async () => {
     try {
       const response = await fetch("http://localhost:8080/listar-apostas");
@@ -56,26 +55,42 @@ export default function Component() {
     }
   };
 
-  // Função para buscar o saldo
   const fetchSaldo = async () => {
     try {
       const response = await fetch("http://localhost:8080/saldo");
       const data = await response.json();
-      setSaldo(data.saldo); // Atualiza o estado com o saldo retornado pelo backend
+      setSaldo(data.saldo);
     } catch (error) {
       console.error("Erro ao buscar saldo:", error);
     }
   };
 
+  const realizarDeposito = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/deposito", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ valor: parseFloat(deposito) }),
+      });
+
+      if (response.ok) {
+        fetchSaldo();
+      } else {
+        console.error("Erro ao realizar depósito:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Erro ao realizar depósito:", error);
+    }
+  };
+
   useEffect(() => {
     fetchApostas();
-    fetchSaldo(); // Chama a função para buscar o saldo ao carregar o componente
+    fetchSaldo();
   }, []);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white p-4 relative">
       <div className="max-w-md mx-auto space-y-6">
-        {/* Header */}
         <div className="flex items-center justify-between">
           <div>
             <p className="text-gray-400">pedroarg_</p>
@@ -88,32 +103,30 @@ export default function Component() {
           </Button>
         </div>
 
-        {/* Balance Info */}
         <div>
           <p className="text-gray-400">Saldo Disponível</p>
-          {/* Exibe o saldo se ele estiver disponível */}
           <p className="text-2xl font-bold">
             {saldo !== null ? `R$${saldo.toFixed(2)}` : "Carregando..."}
           </p>
         </div>
 
-        {/* Lista de Apostas */}
         <div className="space-y-4">
           {apostas.map((aposta, index) => (
             <Card key={index} className="bg-zinc-900 border-gray-800 p-4">
               <div className="flex flex-col space-y-2">
                 <div className="flex justify-between items-center">
                   <h2 className="text-xl font-bold text-white">
-                    {aposta["event-details"].teams[0].name} vs {aposta["event-details"].teams[1].name}
+                    {aposta["event-details"].teams[0].name} vs{" "}
+                    {aposta["event-details"].teams[1].name}
                   </h2>
                   <span
-                    className={`text-sm font-bold px-2 py-1 rounded ${
-                      aposta.status === "vencido"
+                    className={`text-sm font-bold px-2 py-1 rounded 
+                      ${aposta.status === "vencido"
                         ? "bg-green-600 text-white"
                         : aposta.status === "perdido"
-                        ? "bg-red-600 text-white"
-                        : "bg-yellow-600 text-white"
-                    }`}
+                          ? "bg-red-600 text-white"
+                          : "bg-yellow-600 text-white"
+                      }`}
                   >
                     {aposta.status}
                   </span>
@@ -123,7 +136,11 @@ export default function Component() {
                 </p>
                 <div className="space-y-1">
                   <div className="flex justify-between text-sm text-gray-300">
-                    <span>Mercado: {mercados[aposta.mercado as keyof typeof mercados] || "Desconhecido"}</span>
+                    <span>
+                      Mercado:{" "}
+                      {mercados[aposta.mercado as keyof typeof mercados] ||
+                        "Desconhecido"}
+                    </span>
                     <span>Valor Apostado: R${aposta.valor}</span>
                   </div>
                 </div>
@@ -140,7 +157,12 @@ export default function Component() {
             <input
               type="number"
               value={deposito}
-              onChange={(e) => setDeposito(e.target.value)}
+              onChange={(e) => {
+                const valor = e.target.value;
+                if (parseFloat(valor) >= 0 || valor === "") {
+                  setDeposito(valor);
+                }
+              }}
               className="w-full p-2 rounded bg-zinc-800 text-white outline-none border border-zinc-700 focus:ring focus:ring-green-600"
               placeholder="Ex: 100.00"
             />
@@ -149,7 +171,7 @@ export default function Component() {
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
                 onClick={() => {
                   setIsModalOpen(false);
-                  setDeposito(""); 
+                  setDeposito("");
                 }}
               >
                 Cancelar
@@ -157,7 +179,8 @@ export default function Component() {
               <Button
                 className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
                 onClick={() => {
-                  setIsModalOpen(false); 
+                  realizarDeposito();
+                  setIsModalOpen(false);
                   setDeposito("");
                 }}
               >
