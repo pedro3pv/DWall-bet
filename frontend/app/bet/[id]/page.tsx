@@ -2,38 +2,43 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Trophy, Swords, Globe, Award, Beer, Snowflake, Flag } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { use, useEffect, useState } from "react"
+import { fetchDataEvents } from "@/lib/services/event"
 
 export default function Component() {
+
+  const pathname = usePathname()
+  const id = pathname.split('/').pop()
+  const [event , setEvent] = useState<{ 
+    teams: { name: string, is_home: boolean, is_away: boolean }[], 
+    schedule: { league_name: string },
+    event_date: string,
+    lines: { selected_affiliate: { moneyline: { moneyline_home: string, moneyline_away: string } } }
+  }>({ 
+    teams: [], 
+    schedule: { league_name: '' },
+    event_date: '',
+    lines: { selected_affiliate: { moneyline: { moneyline_home: '', moneyline_away: '' } } }
+  })
+
+  useEffect(() => {
+    async function fetchEvent() {
+      if (id) {
+        const data = await fetchDataEvents(id)
+        setEvent(data)
+        console.log(data)
+      } else {
+        console.error('ID is undefined')
+      }
+    }
+    fetchEvent()
+  }
+  , [id])
   return (
     <div className="min-h-screen bg-background text-foreground dark">
-      {/* Sports Navigation */}
-      <nav className="bg-card p-2 border-b border-border">
-        <ul className="flex space-x-2 overflow-x-auto">
-          {[
-            { icon: Flag, label: 'NFL' },
-            { icon: Flag, label: 'NBA' },
-            { icon: Trophy, label: 'LaLiga' },
-            { icon: Swords, label: 'UFC' },
-            { icon: Globe, label: 'FIFA' },
-            { icon: Award, label: 'Premier League' },
-            { icon: Beer, label: 'MLB' },
-            { icon: Snowflake, label: 'NHL' },
-            { icon: Flag, label: 'F1' },
-            { icon: Flag, label: 'Tennis' },
-          ].map(({ icon: Icon, label }) => (
-            <li key={label}>
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                <Icon className="w-4 h-4 mr-2" />
-                {label}
-              </Button>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
       {/* Match Header */}
       <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="flex justify-between items-center mb-8">
@@ -42,15 +47,15 @@ export default function Component() {
               <AvatarImage src="/placeholder.svg" alt="Flamengo" />
               <AvatarFallback>FL</AvatarFallback>
             </Avatar>
-            <span className="text-2xl font-bold">Flamengo</span>
+            <span className="text-2xl font-bold">{event.teams?.find((team: { name: string, is_home: boolean }) => team.is_home)?.name}</span>
           </div>
           <div className="text-center">
-            <div className="text-sm text-muted-foreground">Brasileirão Série A</div>
-            <div className="text-sm text-muted-foreground">qua 13 nov</div>
-            <div className="text-2xl font-bold">20:00</div>
+            <div className="text-sm text-muted-foreground">{event.schedule.league_name}</div>
+            <div className="text-sm text-muted-foreground">{new Date(event.event_date).toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: 'short' })}</div>
+            <div className="text-2xl font-bold">{new Date(event.event_date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</div>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-2xl font-bold">Atlético-MG</span>
+            <span className="text-2xl font-bold">{event.teams?.find((team: { name: string, is_away: boolean }) => team.is_away)?.name}</span>
             <Avatar className="w-12 h-12 border border-border">
               <AvatarImage src="/placeholder.svg" alt="Atlético-MG" />
               <AvatarFallback>AM</AvatarFallback>
@@ -60,32 +65,25 @@ export default function Component() {
 
         {/* Navigation Tabs */}
         <Tabs defaultValue="all" className="mb-6">
-          <TabsList className="grid w-full grid-cols-5 bg-card">
-            <TabsTrigger value="all">Tudo</TabsTrigger>
-            <TabsTrigger value="superodds">SuperOdds</TabsTrigger>
-            <TabsTrigger value="match">Partida</TabsTrigger>
-            <TabsTrigger value="handicaps">Handicaps</TabsTrigger>
-            <TabsTrigger value="goals">Gols</TabsTrigger>
-          </TabsList>
           <TabsContent value="all">
             {/* Betting Options */}
             <div className="space-y-4">
               {/* Final Result */}
               <Card className="bg-card border-border">
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold mb-4 text-primary">Resultado Final</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-primary">Resultado Final (1/2)</h3>
                   <div className="grid grid-cols-3 gap-4">
                     <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
-                      <span>Flamengo</span>
-                      <span className="text-lg font-bold text-primary">1.90</span>
+                      <span>{event.teams?.find((team: { name: string, is_home: boolean }) => team.is_home)?.name}</span>
+                      <span className="text-lg font-bold text-primary">{event.lines.selected_affiliate.moneyline.moneyline_home}</span>
                     </Button>
                     <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
                       <span>Empate</span>
                       <span className="text-lg font-bold text-primary">3.30</span>
                     </Button>
                     <Button variant="outline" className="h-16 flex flex-col justify-center border-border hover:bg-accent hover:text-accent-foreground">
-                      <span>Atlético-MG</span>
-                      <span className="text-lg font-bold text-primary">4.20</span>
+                      <span>{event.teams?.find((team: { name: string, is_away: boolean }) => team.is_away)?.name}</span>
+                      <span className="text-lg font-bold text-primary">{event.lines.selected_affiliate.moneyline.moneyline_away}</span>
                     </Button>
                   </div>
                 </CardContent>
