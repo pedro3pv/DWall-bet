@@ -36,7 +36,8 @@
                    (client/get url {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
                                               :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
                                     :query-params {:from date
-                                                   :limit "100"}})
+                                                   :offset "180"
+                                                   :limit "20"}})
                    (catch Exception e
                      (println (str "Erro ao buscar schedule: " (.getMessage e)))
                      nil))]
@@ -84,7 +85,8 @@
             (let [response (client/get (str "https://therundown-therundown-v1.p.rapidapi.com/events/" event-id)
                                        {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
                                                   :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
-                                        :query-params {:include "teams,odds"}})
+                                        :query-params {:include "teams,odds"
+                                                       :offset "180"}})
                   parsed-response (json/parse-string (:body response) true)
                   lines (:lines parsed-response)
                   selected-odds (odds-de-afiliado-especifico lines)]
