@@ -1,50 +1,36 @@
-import { Award, Beer, CalendarIcon, Flag, Globe, Snowflake, Swords, Trophy } from 'lucide-react'
-
+"use client"
+import { CalendarIcon } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from '@/components/ui/button'
+import { useSearchParams } from 'next/navigation'
+import { fetchDataEventsInSchedule } from '@/lib/services/matches'
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode, useState, useEffect } from 'react'
 
-const matches = [
-  { id: 1, homeTeam: "Barcelona", awayTeam: "Real Madrid", date: "2024-03-15" },
-  { id: 2, homeTeam: "Manchester United", awayTeam: "Liverpool", date: "2024-03-20" },
-  { id: 3, homeTeam: "Bayern Munich", awayTeam: "Borussia Dortmund", date: "2024-03-25" },
-  { id: 4, homeTeam: "Paris Saint-Germain", awayTeam: "Marseille", date: "2024-03-30" },
-  { id: 5, homeTeam: "Juventus", awayTeam: "AC Milan", date: "2024-04-05" },
-]
+export default function Component() { 
+  const searchParams = useSearchParams()
+  const id = searchParams.get('id')
+  const [matches, setMatches] = useState([])
 
-export default function Component() {
+  useEffect(() => {
+    async function fetchMatches() {
+      const data = await fetchDataEventsInSchedule(Number(id))
+      setMatches(data)
+    }
+    fetchMatches()
+  }, [id])
+
   return (
     <div className="dark min-h-screen bg-background text-foreground p-4">
-          {/* Sports Navigation */}
-    <nav className="bg-card p-2 border-b border-border">
-      <ul className="flex space-x-2 overflow-x-auto">
-        {[
-          { icon: Flag, label: 'NFL' },
-          { icon: Flag, label: 'NBA' },
-          { icon: Trophy, label: 'LaLiga' },
-          { icon: Swords, label: 'UFC' },
-          { icon: Globe, label: 'FIFA' },
-          { icon: Award, label: 'Premier League' },
-          { icon: Beer, label: 'MLB' },
-          { icon: Snowflake, label: 'NHL' },
-          { icon: Flag, label: 'F1' },
-          { icon: Flag, label: 'Tennis' },
-        ].map(({ icon: Icon, label }) => (
-          <li key={label}>
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-              <Icon className="w-4 h-4 mr-2" />
-              {label}
-            </Button>
-          </li>
-        ))}
-      </ul>
-    </nav>
-      <Card className="w-full max-w-3xl mx-auto">
+      <video className="w-full h-60 object-cover" controls preload="none" autoPlay muted loop>
+        <source src="DWall.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <Card className="w-full max-w-3xl mx-auto mt-4">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Próximos Jogos</CardTitle>
         </CardHeader>
         <CardContent>
           <ul className="space-y-4">
-            {matches.map((match) => (
+            {matches.map((match: { id: Key | null | undefined; homeTeam: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; awayTeam: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; date: string | number | Date }) => (
               <li key={match.id} className="bg-card rounded-lg shadow p-4 border border-border">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                   <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
