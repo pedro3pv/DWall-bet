@@ -15,4 +15,6 @@
                  [clojure.java-time "1.4.2"]
                  [org.mongodb/mongodb-driver-sync "4.11.1"]
                  [mongo-driver-3 "0.8.0"]]
-  :repl-options {:init-ns app.core})
+  :repl-options {:init-ns app.core}
+  :main app.core)
+ 
