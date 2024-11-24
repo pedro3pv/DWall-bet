@@ -24,7 +24,7 @@ export function SiteHeader() {
     <header className="bg-black sticky top-0 z-40 w-full shadow flex-grow" id="noprint">
       {/* Sports Navigation */}
       <div className="flex items-center">
-        <img src="/logo.svg" alt="Logo" className="w-fit h-14 ml-10 mr-10" />
+        <img src="/logo.svg" alt="Logo" className="w-20 h-14 ml-10 mr-10" />
         <nav className="bg-black p-2 border-border">
           <ul className="flex space-x-2 overflow-x-auto">
             {sports.map(({ icon: Icon, label, id }: { icon: React.ComponentType<{ className?: string }>; label: string; id: number }) => {
@@ -42,7 +42,7 @@ export function SiteHeader() {
             })}
           </ul>
         </nav>
-        <Avatar className="w-7 h-7 mr-2 ml-2 cursor-pointer" onClick={() => {window.location.href = "/user"}}>
+        <Avatar className="w-7 h-7 ml-auto cursor-pointer" onClick={() => {window.location.href = "/user"}}>
           <AvatarImage src="/perfil.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
