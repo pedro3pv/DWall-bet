@@ -79,7 +79,7 @@ export function CartPopover() {
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button variant="ghost" size="sm" className="ml-auto mr-10 text-muted-foreground hover:text-foreground">
+                <Button variant="ghost" size="sm" className="ml-4 mr-12 text-muted-foreground hover:text-foreground">
                     <LuShoppingCart size={24} />
                 </Button>
             </PopoverTrigger>
