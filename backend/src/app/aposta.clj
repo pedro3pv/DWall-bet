@@ -27,11 +27,6 @@
                     :detalhes-aposta aposta
                     :saldo-atualizado (get-saldo)}}))))))
 
-(defn listar-apostas [request]
-  {:status 200
-   :body {:mensagem "Lista de apostas criadas."
-          :apostas @db-apostas}})
-
 (defn calculate-moneyline-away [list_lines]
 (if (= (get-in list_lines [:moneyline :moneyline_away]) 1.0E-4)
   (int 0)
@@ -107,3 +102,10 @@
       {:status 500
        :body {:mensagem "Ocorreu um erro ao atualizar as apostas."
               :erro (str e)}})))
+
+
+(defn listar-apostas [request]
+  (update-bets request)
+  {:status 200
+   :body {:mensagem "Lista de apostas criadas."
+          :apostas @db-apostas}})
