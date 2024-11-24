@@ -23,8 +23,9 @@ export function CartPopover() {
     }
 
     const [betItems, setBetItems] = useState<BetItem[]>([]);
-
-    useEffect(() => {
+    const [totalAmount, setTotalAmount] = useState(0);
+    
+    function updateBetItems() {
         const storedBets = localStorage.getItem('bet');
         const convertBets = (bets: any[]) => {
             return bets.map(bet => ({
@@ -41,6 +42,21 @@ export function CartPopover() {
             const parsedBets = JSON.parse(storedBets);
             setBetItems(convertBets(parsedBets));
         }
+    }
+
+    const fetchSaldo = async () => {
+        try {
+          const response = await fetch("http://localhost:8080/saldo");
+          const data = await response.json();
+          setTotalAmount(data.saldo);
+        } catch (error) {
+          console.error("Erro ao buscar saldo:", error);
+        }
+      };
+
+    useEffect(() => {
+        updateBetItems();
+        fetchSaldo();
     }, []);
 
     function removeBet(id: string) {
@@ -71,24 +87,28 @@ export function CartPopover() {
                       }),
                 });
             });
+            fetchSaldo();
     }
 }
 
     
 
     return (
-        <Popover>
+        <Popover onOpenChange={() => {updateBetItems()}}>
             <PopoverTrigger asChild>
-                <Button variant="ghost" size="sm" className="ml-auto mr-10 text-muted-foreground hover:text-foreground">
+                <Button variant="ghost" size="sm" className="ml-4 mr-12 text-muted-foreground hover:text-foreground">
                     <LuShoppingCart size={24} />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-80  bg-black">
                 <div className="grid gap-4">
                     <div className="space-y-2">
-                        <h4 className="font-medium leading-none text-white">Your Bet Slip</h4>
+                        <div className="space-y-2">
+                        <h4 className="font-medium leading-none text-white">Seu boletim de apostas</h4>
+                        <h4 className="font-medium leading-none text-white">Saldo Disponível: {totalAmount.toFixed(2)}</h4>
+                        </div>
                         <p className="text-sm text-muted-foreground">
-                            Review and manage your current bets.
+                            Revise e gerencie suas apostas atuais.
                         </p>
                     </div>
                     <ScrollArea className="h-[300px] rounded-md border bg-black">

@@ -19,7 +19,7 @@
     :else (try
             (let [date (today-date)
                   response (client/get (str (format "https://therundown-therundown-v1.p.rapidapi.com/sports/%d/openers/%s" sport-id date))
-                                       {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
+                                       {:headers {:x-rapidapi-key "3918fd0ba5msh35b6601a595c453p1fb7dajsn11855839b9d9"
                                                   :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
                                         :query-params {:offset "180"
                                                        :include "scores&include=all_periods"}})]
@@ -33,7 +33,7 @@
   (let [date (today-date)
         url (str (format "https://therundown-therundown-v1.p.rapidapi.com/sports/%d/schedule" sport-id))
         response (try
-                   (client/get url {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
+                   (client/get url {:headers {:x-rapidapi-key "3918fd0ba5msh35b6601a595c453p1fb7dajsn11855839b9d9"
                                               :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
                                     :query-params {:from date
                                                    :offset "180"
@@ -60,7 +60,7 @@
 
 (defn get-sport []
   (let [response (client/get "https://therundown-therundown-v1.p.rapidapi.com/sports"
-                             {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
+                             {:headers {:x-rapidapi-key "3918fd0ba5msh35b6601a595c453p1fb7dajsn11855839b9d9"
                                         :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}})]
     (json/parse-string (:body response) true)))
 
@@ -83,7 +83,7 @@
                      :body "ID do evento não informado"}
     :else (try
             (let [response (client/get (str "https://therundown-therundown-v1.p.rapidapi.com/events/" event-id)
-                                       {:headers {:x-rapidapi-key "b2129be27emshdd1b420c63ed2b1p1de5bcjsn1c931c61faa8"
+                                       {:headers {:x-rapidapi-key "3918fd0ba5msh35b6601a595c453p1fb7dajsn11855839b9d9"
                                                   :x-rapidapi-host "therundown-therundown-v1.p.rapidapi.com"}
                                         :query-params {:include "teams,odds"
                                                        :offset "180"}})
