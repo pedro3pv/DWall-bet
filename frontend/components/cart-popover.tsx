@@ -23,8 +23,8 @@ export function CartPopover() {
     }
 
     const [betItems, setBetItems] = useState<BetItem[]>([]);
-
-    useEffect(() => {
+    
+    function updateBetItems() {
         const storedBets = localStorage.getItem('bet');
         const convertBets = (bets: any[]) => {
             return bets.map(bet => ({
@@ -41,6 +41,10 @@ export function CartPopover() {
             const parsedBets = JSON.parse(storedBets);
             setBetItems(convertBets(parsedBets));
         }
+    }
+
+    useEffect(() => {
+        updateBetItems();
     }, []);
 
     function removeBet(id: string) {
@@ -77,7 +81,7 @@ export function CartPopover() {
     
 
     return (
-        <Popover>
+        <Popover onOpenChange={() => {updateBetItems()}}>
             <PopoverTrigger asChild>
                 <Button variant="ghost" size="sm" className="ml-4 mr-12 text-muted-foreground hover:text-foreground">
                     <LuShoppingCart size={24} />
