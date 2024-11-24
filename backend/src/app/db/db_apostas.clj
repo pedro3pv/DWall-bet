@@ -6,11 +6,12 @@
 (defn add-aposta [aposta]
   (let [last-id (if (empty? @db-apostas)
                   0
-                  (:id (last @db-apostas)))
+                  (count @db-apostas))
         aposta (if (:id aposta)
                  aposta
                  (assoc (assoc aposta :status "ativo") :id (inc last-id)))]
-    (do (swap! db-apostas conj aposta) (add-aposta-mongodb aposta))))
+    (swap! db-apostas conj aposta)
+    (add-aposta-mongodb aposta)))
 
 (defn get-aposta [id]
   (first (filter #(= id (:id %)) @db-apostas)))
